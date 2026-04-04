@@ -33,14 +33,6 @@ export default function Home() {
                 transition: 'transform 0.2s, box-shadow 0.2s',
                 backgroundColor: '#ffffff',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 8px 16px rgba(233, 69, 96, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'none';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
             >
               <h3 style={{ margin: '0 0 0.5rem 0', color: BRAND_DARK, fontSize: '1.3rem' }}>{park.name}</h3>
               <p style={{ margin: '0 0 0.5rem 0', color: '#666666', fontSize: '0.95rem' }}>{park.city}, {park.state}</p>
