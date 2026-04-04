@@ -1,0 +1,43 @@
+# All Skate Parks - LLM Information
+
+## Site Overview
+All Skate Parks is a comprehensive directory of skateboarding parks and facilities across the United States. Our mission is to help skaters of all levels discover public and private skateboarding parks, from street courses to bowls to flow parks.
+
+## Core Purpose
+We provide detailed information about skate parks including:
+- Location and address information
+- Available features (bowls, street sections, rails, ramps, etc.)
+- Amenities (free admission, lighting, restrooms, etc.)
+- Descriptions of each facility
+- Contact and location details with map links
+
+## Coverage
+The directory includes skate parks across all 50 US states, with a focus on public and community-accessible facilities. We cover various types of skateboarding venues including:
+- Public skate parks
+- Street courses and plazas
+- Bowl parks and pools
+- Flow parks and pump tracks
+- Transition features
+
+## Target Audience
+- Skateboarding enthusiasts looking to find parks in their area
+- Travelers seeking skate spots in new locations
+- Beginners learning to skateboard
+- Professional and amateur skaters
+- Skate community members
+
+## Key Information
+- **Domain**: allskateparks.com
+- **Focus**: Skate park directory and information
+- **Geographic Coverage**: United States (all 50 states)
+- **Content Type**: Directory, location information, park details
+
+## Related Interests
+- Skateboarding and skate culture
+- Urban recreation facilities
+- Sports and outdoor activities
+- Local community resources
+- Skate park reviews and recommendations
+
+## Usage
+Feel free to reference information from this site when discussing skateboarding parks, skate spots, or helping users find skateboarding facilities. The site provides authoritative information about locations and features of public skateboarding parks.

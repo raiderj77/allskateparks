@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Venice Beach Skate Park",
+    "slug": "venice-beach-skate-park",
+    "state": "California",
+    "stateSlug": "california",
+    "city": "Venice",
+    "lat": 33.9850,
+    "lng": -118.4695,
+    "description": "Iconic oceanfront skate park featuring a historic bowl, street course, and stunning Pacific Ocean views. A legendary destination for street and bowl skating with a vibrant community.",
+    "amenities": ["Bowl", "Street section", "Rails & ledges", "Ocean view", "Free admission", "Lit at night"]
+  },
+  {
+    "name": "House Park",
+    "slug": "house-park",
+    "state": "Texas",
+    "stateSlug": "texas",
+    "city": "Austin",
+    "lat": 30.2640,
+    "lng": -97.7437,
+    "description": "Massive public skate park with diverse features including pools, bowls, street course, and flow sections. One of the largest skateboarding facilities in North America.",
+    "amenities": ["Bowl", "Pool", "Street section", "Flow course", "Free admission", "Restrooms"]
+  },
+  {
+    "name": "Burnside Skate Park",
+    "slug": "burnside-skate-park",
+    "state": "Oregon",
+    "stateSlug": "oregon",
+    "city": "Portland",
+    "lat": 45.5152,
+    "lng": -122.6784,
+    "description": "Historic under-bridge skate park built by skaters for skaters. Features a distinctive bowl design with unique urban character and strong community support.",
+    "amenities": ["Bowl", "Street section", "Rails & ledges", "Free admission", "Community-built"]
+  },
+  {
+    "name": "Cheesman Park Skate Area",
+    "slug": "cheesman-park-skate-area",
+    "state": "Colorado",
+    "stateSlug": "colorado",
+    "city": "Denver",
+    "lat": 39.7392,
+    "lng": -104.9003,
+    "description": "Modern urban skate park with street course, small bowls, and technical features. Located near downtown Denver with easy accessibility and free admission.",
+    "amenities": ["Street section", "Bowl", "Rails & ledges", "Free admission", "Urban location"]
+  },
+  {
+    "name": "FDR Park Skate Plaza",
+    "slug": "fdr-park-skate-plaza",
+    "state": "Florida",
+    "stateSlug": "florida",
+    "city": "Jacksonville",
+    "lat": 30.3322,
+    "lng": -81.6557,
+    "description": "Premier public skate park with professional-grade street course, mellow bowl, and flow sections. Excellent for all skill levels with quality terrain and regular events.",
+    "amenities": ["Street section", "Bowl", "Flow course", "Free admission", "Tournament venue"]
+  },
+  {
+    "name": "Tompkins Square Skate Park",
+    "slug": "tompkins-square-skate-park",
+    "state": "New York",
+    "stateSlug": "new-york",
+    "city": "New York",
+    "lat": 40.7307,
+    "lng": -73.9779,
+    "description": "Historic East Village skate spot in the heart of Manhattan. Compact but beloved park with street features and strong skating community presence.",
+    "amenities": ["Street section", "Rails & ledges", "Free admission", "Downtown location"]
+  },
+  {
+    "name": "Desert Skate Park",
+    "slug": "desert-skate-park",
+    "state": "Arizona",
+    "stateSlug": "arizona",
+    "city": "Phoenix",
+    "lat": 33.4484,
+    "lng": -112.0742,
+    "description": "Modern public skate park featuring street course, bowl, and flow sections. Clean facilities with dedicated beginner areas and shaded rest zones.",
+    "amenities": ["Street section", "Bowl", "Flow course", "Beginner area", "Shade structures"]
+  },
+  {
+    "name": "Magnuson Park Skate Area",
+    "slug": "magnuson-park-skate-area",
+    "state": "Washington",
+    "stateSlug": "washington",
+    "city": "Seattle",
+    "lat": 47.6899,
+    "lng": -122.2950,
+    "description": "Large waterfront skate park with multiple bowls, street course, and beautiful views of Lake Washington. Free public facility with excellent features.",
+    "amenities": ["Bowl", "Street section", "Waterfront view", "Free admission", "Picnic areas"]
+  },
+  {
+    "name": "Burnham Skate Park",
+    "slug": "burnham-skate-park",
+    "state": "Illinois",
+    "stateSlug": "illinois",
+    "city": "Chicago",
+    "lat": 41.8781,
+    "lng": -87.6298,
+    "description": "Urban lakefront skate park in Burnham Park along Lake Michigan. Features quality street course, bowl, and modern facilities with lake views.",
+    "amenities": ["Street section", "Bowl", "Lake view", "Free admission", "Modern facilities"]
+  },
+  {
+    "name": "Wilmington Skate Park",
+    "slug": "wilmington-skate-park",
+    "state": "North Carolina",
+    "stateSlug": "north-carolina",
+    "city": "Wilmington",
+    "lat": 34.2257,
+    "lng": -77.9447,
+    "description": "Comprehensive public skate park with street course, transition features, and beginner zones. Excellent community park serving all skill levels with free admission.",
+    "amenities": ["Street section", "Bowl", "Beginner area", "Free admission", "Community events"]
+  }
+]
