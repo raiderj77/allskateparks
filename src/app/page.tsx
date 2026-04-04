@@ -1,188 +1,189 @@
+/* eslint-disable @next/next/no-img-element */
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import locations from '@/data/locations.json';
 
 export const dynamic = 'force-static';
 
-const BRAND_DARK = '#1a1a2e';
-const BRAND_ACCENT = '#e94560';
+export const metadata: Metadata = {
+  title: 'All Skate Parks — Find Skateparks Across America',
+  description: 'Discover public skateparks near you. The complete directory of skate parks across all 50 states with surfaces, amenities, and GPS coordinates.',
+};
+
+const ALL_STATES = [
+  'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware',
+  'Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky',
+  'Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi',
+  'Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico',
+  'New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania',
+  'Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont',
+  'Virginia','Washington','West Virginia','Wisconsin','Wyoming',
+];
+
+const IMG_KEYWORDS = ['skatepark','skateboarding+park','concrete+skatepark','skate+bowl','street+skating','skateboard+ramp'];
 
 export default function Home() {
-  const featuredParks = locations.slice(0, 6);
+  const featured = locations.slice(0, 6);
+  const statesWithData = Array.from(new Set(locations.map((l) => l.state))).length;
 
   return (
-    <div style={{ backgroundColor: '#ffffff' }}>
-      <section style={{ backgroundColor: BRAND_DARK, color: '#ffffff', padding: '4rem 1rem', textAlign: 'center' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: '3rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Find Skate Parks Near You</h1>
-          <p style={{ fontSize: '1.2rem', margin: 0, lineHeight: '1.6' }}>Discover the best skateboarding parks across the USA. Street courses, bowls, rails, and more.</p>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context':'https://schema.org','@type':'WebSite',url:'https://allskateparks.com',
+        name:'All Skate Parks',
+        potentialAction:{'@type':'SearchAction',target:{'@type':'EntryPoint',urlTemplate:'https://allskateparks.com/search?q={search_term_string}'},'query-input':'required name=search_term_string'},
+      }) }} />
+
+      {/* Hero */}
+      <section style={{ position: 'relative', background: 'var(--asphalt)', overflow: 'hidden', padding: '7rem 1.5rem 8rem' }}>
+        {/* Concrete texture lines */}
+        <div aria-hidden style={{ position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.01) 80px, rgba(255,255,255,0.01) 81px)', pointerEvents: 'none' }} />
+        {/* Yellow accent bar */}
+        <div aria-hidden style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '6px', background: 'var(--yellow)' }} />
+        <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+          <p className="anim-fade-up" style={{ display: 'inline-block', color: 'var(--asphalt)', fontWeight: 700, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: '1.25rem', fontFamily: 'var(--font-body)', background: 'var(--yellow)', padding: '0.35rem 1rem', borderRadius: '2px' }}>
+            🛹 Free Skatepark Directory
+          </p>
+          <h1 className="anim-fade-up anim-delay-1" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 7vw, 5.5rem)', color: 'var(--white)', marginBottom: '0.5rem', lineHeight: 1, letterSpacing: '-0.01em' }}>
+            FIND YOUR<br /><span style={{ color: 'var(--yellow)' }}>SKATEPARK</span>
+          </h1>
+          <p className="anim-fade-up anim-delay-2" style={{ fontSize: '1rem', color: 'var(--mid-gray)', marginBottom: '2.75rem', maxWidth: '440px', margin: '0 auto 2.75rem', fontFamily: 'var(--font-body)', lineHeight: 1.65 }}>
+            {locations.length}+ public skateparks across America. Bowls, street courses, and free parks — all in one place.
+          </p>
+          <form method="GET" action="/search" className="anim-fade-up anim-delay-3">
+            <div className="search-wrap">
+              <input type="text" name="q" placeholder="Search by state, city, or park name…" className="search-input" />
+              <button type="submit" className="search-btn">Find Parks</button>
+            </div>
+          </form>
         </div>
+        <svg aria-hidden viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', display: 'block' }} preserveAspectRatio="none">
+          <path d="M0,25 C480,50 960,0 1440,25 L1440,50 L0,50 Z" fill="var(--ivory)" />
+        </svg>
       </section>
 
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1rem' }}>
-        <h2 style={{ fontSize: '2rem', margin: '2rem 0 1rem 0', color: BRAND_DARK, textAlign: 'center' }}>Featured Parks</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-          {featuredParks.map((park) => (
-            <a
-              key={park.slug}
-              href={`/${park.stateSlug}/${park.slug}`}
-              style={{
-                padding: '1.5rem',
-                border: `2px solid ${BRAND_ACCENT}`,
-                borderRadius: '8px',
-                textDecoration: 'none',
-                color: 'inherit',
-                transition: 'transform 0.2s, box-shadow 0.2s',
-                backgroundColor: '#ffffff',
-              }}
-            >
-              <h3 style={{ margin: '0 0 0.5rem 0', color: BRAND_DARK, fontSize: '1.3rem' }}>{park.name}</h3>
-              <p style={{ margin: '0 0 0.5rem 0', color: '#666666', fontSize: '0.95rem' }}>{park.city}, {park.state}</p>
-              <p style={{ margin: '0 0 1rem 0', color: '#555555', fontSize: '0.9rem', lineHeight: '1.5' }}>{park.description.substring(0, 100)}...</p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                {park.amenities.slice(0, 3).map((amenity) => (
-                  <span
-                    key={amenity}
-                    style={{
-                      backgroundColor: '#f0f0f0',
-                      padding: '0.25rem 0.75rem',
-                      borderRadius: '4px',
-                      fontSize: '0.8rem',
-                      color: BRAND_DARK,
-                    }}
-                  >
-                    {amenity}
-                  </span>
-                ))}
-              </div>
-            </a>
+      {/* Stats */}
+      <section style={{ background: 'var(--white)', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          {[
+            { n:`${locations.length}+`, l:'Skate Parks' },
+            { n:`${statesWithData}`, l:'States' },
+            { n:'100%', l:'Free Access' },
+            { n:'All', l:'Skill Levels' },
+          ].map(({n,l}) => (
+            <div key={l} className="stat-item">
+              <div className="stat-number">{n}</div>
+              <div className="stat-label">{l}</div>
+            </div>
           ))}
         </div>
       </section>
 
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1rem', lineHeight: '1.8', color: '#333333' }}>
-        <h2 style={{ fontSize: '2rem', margin: '2rem 0 1rem 0', color: BRAND_DARK }}>About Skate Parks</h2>
-
-        <p style={{ fontSize: '1rem', marginBottom: '1.5rem' }}>
-          Skateboarding parks have become vital spaces for skaters of all ages and skill levels across America. Whether you're a beginner learning your first kickflip or a seasoned professional perfecting technical tricks, finding the right skate park is essential to developing your skills and connecting with the skating community.
-        </p>
-
-        <h3 style={{ fontSize: '1.2rem', color: BRAND_DARK, marginTop: '1.5rem' }}>History and Culture of Skateboarding Parks</h3>
-        <p style={{ fontSize: '1rem', marginBottom: '1.5rem' }}>
-          Skateboarding parks emerged in the 1970s when California experienced a major drought, leaving empty swimming pools that skaters discovered could be transformed into skating venues. These "pool skating" spots evolved into purpose-built parks with wooden ramps and concrete bowls. Today, skate parks represent more than just facilities—they're cultural hubs where skaters gather to practice, compete, and build community. Modern parks range from small neighborhood spots to massive facilities hosting professional competitions.
-        </p>
-
-        <h3 style={{ fontSize: '1.2rem', color: BRAND_DARK, marginTop: '1.5rem' }}>Types of Skate Parks</h3>
-        <p style={{ fontSize: '1rem', marginBottom: '1.5rem' }}>
-          Different skate parks cater to different styles of skating. <strong>Street parks</strong> feature stairs, rails, ledges, and flat ground obstacles designed to mimic urban environments. <strong>Bowl parks</strong> offer concrete bowls and pools for carving and aerial tricks. <strong>Park-style</strong> facilities combine multiple features including ramps, spines, and hips. <strong>Flow parks</strong> provide smooth, interconnected terrain that encourages fluid, continuous movement. Understanding which type of park suits your skating style will help you make the most of your sessions.
-        </p>
-
-        <h3 style={{ fontSize: '1.2rem', color: BRAND_DARK, marginTop: '1.5rem' }}>How to Use This Directory</h3>
-        <p style={{ fontSize: '1rem', marginBottom: '1.5rem' }}>
-          Our All Skate Parks directory makes it easy to find skateboarding facilities near you. Browse parks by state, check amenities and features, and learn about operating hours and rules. Each park listing includes location information, available features, and community reviews. Whether you're traveling or exploring new local spots, use our directory to discover your next favorite place to skate.
-        </p>
-
-        <h3 style={{ fontSize: '1.2rem', color: BRAND_DARK, marginTop: '1.5rem' }}>Safety Tips for Skaters</h3>
-        <p style={{ fontSize: '1rem', marginBottom: '1.5rem' }}>
-          Safety should always be your first priority when skating. Always wear appropriate protective gear including a helmet, wrist guards, elbow pads, and knee pads. Start with appropriate difficulty levels and progress gradually. Respect park rules and the safety of other skaters. Check conditions before skating, especially after rain or bad weather. Stretch before sessions to prevent injuries, and know your limits. If you're new to a park, spend time observing before attempting advanced tricks. Remember that even professional skaters experience falls—proper protection makes all the difference.
-        </p>
-
-        <h2 style={{ fontSize: '2rem', margin: '2rem 0 1rem 0', color: BRAND_DARK }}>Frequently Asked Questions</h2>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <h4 style={{ fontSize: '1.05rem', color: BRAND_DARK, margin: '0 0 0.5rem 0' }}>Are all skate parks free to use?</h4>
-          <p style={{ fontSize: '1rem', margin: 0 }}>Many public skate parks are free to use, though some private facilities or premium parks may charge admission fees. Check individual park listings for specific details about admission costs.</p>
-        </div>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <h4 style={{ fontSize: '1.05rem', color: BRAND_DARK, margin: '0 0 0.5rem 0' }}>What protective gear do I need?</h4>
-          <p style={{ fontSize: '1rem', margin: 0 }}>At minimum, wear a helmet, wrist guards, elbow pads, and knee pads. These protect against the most common skating injuries. Many parks require helmets for entry.</p>
-        </div>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <h4 style={{ fontSize: '1.05rem', color: BRAND_DARK, margin: '0 0 0.5rem 0' }}>Can beginners use skate parks?</h4>
-          <p style={{ fontSize: '1rem', margin: 0 }}>Absolutely! Skate parks welcome skaters of all levels. Most parks have areas suitable for beginners, and the community is generally very supportive and encouraging to new skaters.</p>
-        </div>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <h4 style={{ fontSize: '1.05rem', color: BRAND_DARK, margin: '0 0 0.5rem 0' }}>What are the typical park hours?</h4>
-          <p style={{ fontSize: '1rem', margin: 0 }}>Hours vary by location. Most public parks are open sunrise to sunset, while some have extended evening hours with lighting. Check individual park listings for specific hours.</p>
-        </div>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <h4 style={{ fontSize: '1.05rem', color: BRAND_DARK, margin: '0 0 0.5rem 0' }}>How do I find parks near me?</h4>
-          <p style={{ fontSize: '1rem', margin: 0 }}>Use our directory to browse by state, or search for parks in your city. Each listing includes the exact location, features, and contact information to help you find the perfect spot.</p>
+      {/* Featured */}
+      <section style={{ padding: '5rem 1.5rem 4rem' }}>
+        <div className="container">
+          <p className="section-label">Top Parks</p>
+          <h2 className="section-title">Featured Skateparks</h2>
+          <p className="section-sub" style={{ marginBottom: '3rem' }}>Iconic public skateparks across America — from concrete bowls to world-class street plazas.</p>
+          <div className="grid-3">
+            {featured.map((loc, i) => (
+              <Link key={loc.slug} href={`/${loc.stateSlug}/${loc.slug}`} style={{ textDecoration: 'none' }}>
+                <article className="card">
+                  <img src={`https://source.unsplash.com/800x500/?${IMG_KEYWORDS[i%IMG_KEYWORDS.length]}&sig=${i+1}`} alt={loc.name} className="card-img" loading="lazy" width={800} height={500} />
+                  <div className="card-body">
+                    <div className="card-meta"><span>📍</span><span>{loc.city ? `${loc.city}, ` : ''}{loc.state}</span></div>
+                    <h3 className="card-title">{loc.name}</h3>
+                    <p style={{ fontSize: '0.875rem', color: '#667', lineHeight: 1.65, flex: 1, marginBottom: '1rem', fontFamily: 'var(--font-body)' }}>{loc.description.slice(0,110)}…</p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                      {loc.amenities.slice(0,3).map((a) => <span key={a} className="chip">{a}</span>)}
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "All Skate Parks",
-          "url": "https://allskateparks.com",
-          "description": "Discover skateboarding parks across the USA. Find public and private skate parks, bowls, street courses, and more in your area."
-        })
-      }} />
+      {/* How it works */}
+      <section style={{ background: 'var(--asphalt)', padding: '5rem 1.5rem' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <p style={{ color: 'var(--yellow)', fontWeight: 700, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '0.75rem', fontFamily: 'var(--font-body)' }}>How It Works</p>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.6rem', color: 'var(--white)' }}>FIND YOUR SPOT</h2>
+          </div>
+          <div className="grid-3">
+            {[
+              { icon:'🗺️', title:'BROWSE BY STATE', desc:'Pick your state to see every public skatepark — sorted by city, with full details on surfaces and features.' },
+              { icon:'🔍', title:'CHECK THE PARK', desc:'Review the park type, surfaces, lighting, parking, and all available amenities before you go.' },
+              { icon:'🛹', title:'DROP IN', desc:"Navigate to your spot and skate. It's that simple. All parks in our directory are publicly accessible." },
+            ].map(({icon,title,desc}) => (
+              <div key={title} style={{ padding: '2rem 1.5rem', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 'var(--radius)' }}>
+                <div className="step-icon">{icon}</div>
+                <h3 style={{ fontFamily: 'var(--font-display)', color: 'var(--yellow)', fontSize: '1.5rem', marginBottom: '0.75rem' }}>{title}</h3>
+                <p style={{ color: 'var(--mid-gray)', lineHeight: 1.7, fontSize: '0.95rem', fontFamily: 'var(--font-body)' }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "All Skate Parks",
-          "url": "https://allskateparks.com",
-          "logo": "https://allskateparks.com/logo.png",
-          "description": "Your guide to skateboarding parks across America",
-          "sameAs": ["https://www.facebook.com/allskateparks", "https://www.instagram.com/allskateparks"]
-        })
-      }} />
+      {/* Content */}
+      <section style={{ padding: '5rem 1.5rem' }}>
+        <div className="container" style={{ maxWidth: '860px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', color: 'var(--asphalt)', marginBottom: '1.25rem' }}>{"America's Skatepark Scene"}</h2>
+          <p style={{ lineHeight: 1.85, marginBottom: '1.25rem', fontFamily: 'var(--font-body)' }}>From the legendary concrete bowls of California to the vibrant urban skateplazas of New York and Chicago, the United States has one of the most diverse and expansive networks of public skateparks in the world. Cities large and small have invested in quality skate infrastructure, recognizing the cultural and athletic significance of skateboarding.</p>
+          <p style={{ lineHeight: 1.85, marginBottom: '1.25rem', fontFamily: 'var(--font-body)' }}>Public skateparks range from small community parks with a few ramps and a quarter pipe, to massive world-class facilities spanning acres with competition-grade bowls, street courses, and flow areas. Many modern parks are designed by professional skaters and architects working together to create the ultimate skating experience.</p>
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--asphalt)', marginTop: '2rem', marginBottom: '0.75rem' }}>Know Before You Go</h3>
+          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)' }}>Most public skateparks require helmets for minors and strongly recommend them for all skaters. Hours vary — many parks have lighting for night skating while others close at dusk. Always check local rules, as some parks prohibit bikes or scooters in certain areas.</p>
+        </div>
+      </section>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Are all skate parks free to use?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Many public skate parks are free to use, though some private facilities or premium parks may charge admission fees. Check individual park listings for specific details about admission costs."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What protective gear do I need?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "At minimum, wear a helmet, wrist guards, elbow pads, and knee pads. These protect against the most common skating injuries. Many parks require helmets for entry."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can beginners use skate parks?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Absolutely! Skate parks welcome skaters of all levels. Most parks have areas suitable for beginners, and the community is generally very supportive and encouraging to new skaters."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What are the typical park hours?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Hours vary by location. Most public parks are open sunrise to sunset, while some have extended evening hours with lighting. Check individual park listings for specific hours."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do I find parks near me?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Use our directory to browse by state, or search for parks in your city. Each listing includes the exact location, features, and contact information to help you find the perfect spot."
-              }
-            }
-          ]
-        })
-      }} />
-    </div>
+      {/* FAQ */}
+      <section style={{ background: '#f5f5f5', borderTop: '1px solid rgba(0,0,0,0.06)', padding: '5rem 1.5rem' }}>
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p className="section-label">FAQ</p>
+            <h2 className="section-title">Common Questions</h2>
+          </div>
+          {[
+            { q:'Are public skateparks free?', a:'Most public skateparks in the United States are completely free and open to the public. They are maintained by local parks and recreation departments. A small number may charge a nominal fee during certain hours.' },
+            { q:'Do I need a helmet at a public skatepark?', a:'Rules vary by location and age. Most parks require helmets for minors under 18. Many parks also require knee and elbow pads for younger children. Always check posted rules at the park.' },
+            { q:'Can I bring my bike or scooter to a skatepark?', a:'This depends entirely on the individual park. Many skateparks are skateboards and inline skates only, while others allow BMX bikes and scooters during certain hours. Look for posted rules or check with your local parks department.' },
+            { q:'What surfaces are common in skateparks?', a:'Concrete (poured in place or precast) is the gold standard — it\'s smooth, durable, and fast. Some parks use asphalt, skatelite (a hardboard surface), or steel for specific features. New parks are almost exclusively concrete.' },
+            { q:'How do I find the skatepark nearest to me?', a:'Use our directory to search by state and city. Each listing includes GPS coordinates for precise navigation directly to the park entrance.' },
+          ].map(({q,a}) => (
+            <details key={q} className="faq-item">
+              <summary>{q}</summary>
+              <div className="faq-answer">{a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* Browse States */}
+      <section style={{ padding: '5rem 1.5rem' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <p className="section-label">All 50 States</p>
+            <h2 className="section-title">Browse Parks by State</h2>
+          </div>
+          <div className="grid-states">
+            {ALL_STATES.map((s) => (
+              <Link key={s} href={`/${s.toLowerCase().replace(/\s+/g,'-')}`} className="state-link">{s}</Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ background: 'var(--asphalt)', padding: '4rem 1.5rem', textAlign: 'center' }}>
+        <div className="container" style={{ maxWidth: '600px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', color: 'var(--yellow)', marginBottom: '0.75rem' }}>DROP IN.</h2>
+          <p style={{ color: 'var(--mid-gray)', marginBottom: '2rem', lineHeight: 1.7, fontFamily: 'var(--font-body)' }}>{locations.length}+ skateparks across {statesWithData} states. All free. Find yours now.</p>
+          <Link href="/browse-states" className="btn btn-yellow" style={{ padding: '0.9rem 2.5rem' }}>Explore Skateparks →</Link>
+        </div>
+      </section>
+    </>
   );
 }

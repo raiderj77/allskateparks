@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with All Skate Parks. We'd love to hear from you.',
+  description: "Get in touch with All Skate Parks. We'd love to hear from you.",
 };
 
 const BRAND_DARK = '#1a1a2e';

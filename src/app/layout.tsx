@@ -1,108 +1,86 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { Archivo_Black, Barlow } from 'next/font/google';
+import './globals.css';
 
-const BRAND_DARK = '#1a1a2e';
-const BRAND_ACCENT = '#e94560';
+const archivoBlack = Archivo_Black({ subsets: ['latin'], variable: '--font-display', display: 'swap', weight: '400' });
+const barlow = Barlow({ subsets: ['latin'], variable: '--font-body', display: 'swap', weight: ['400','500','600','700'] });
 
 export const metadata: Metadata = {
-  title: {
-    template: '%s | All Skate Parks',
-    default: 'All Skate Parks - Find Skate Parks Near You',
-  },
-  description: 'Discover skateboarding parks across the USA. Find public and private skate parks, bowls, street courses, and more in your area.',
-  keywords: [
-    'skate parks',
-    'skateboarding',
-    'skate ramps',
-    'skate bowls',
-    'skateboard parks',
-    'street skating',
-    'skate spots',
-    'skate park directory',
-  ],
+  title: { template: '%s | All Skate Parks', default: 'All Skate Parks — Find Skateparks Across America' },
+  description: 'Find skateparks near you. The complete directory of public skate parks across all 50 states with amenities, surfaces, and directions.',
+  keywords: 'skatepark, skate park near me, public skatepark, skateboarding, bowl, street skating',
+  metadataBase: new URL('https://allskateparks.com'),
   alternates: { canonical: 'https://allskateparks.com' },
+  robots: 'index, follow, max-snippet:-1',
   verification: { google: 'UMcPqSXvA9j38lmCLm0RSNAV_4EcqQI6YJQnbN0KgG0' },
-  openGraph: {
-    title: 'All Skate Parks - Find Skate Parks Near You',
-    description: 'Discover skateboarding parks across the USA. Find public and private skate parks, bowls, street courses, and more in your area.',
-    url: 'https://allskateparks.com',
-    siteName: 'All Skate Parks',
-    type: 'website',
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'All Skate Parks',
-    description: 'Find skateboarding parks near you',
-  },
-  other: {
-    'msvalidate.01': 'C4C9B6256BDEDED169E4DE01CA953390',
-  },
 };
+
+const toolSites = [
+  { name: 'Fiber Tools', href: 'https://fibertools.app' }, { name: 'Mind Check Tools', href: 'https://mindchecktools.com' },
+  { name: 'Flip My Case', href: 'https://flipmycase.com' }, { name: 'Creator Revenue Calculator', href: 'https://creatorrevenuecalculator.com' },
+  { name: 'Contract Extract', href: 'https://contractextract.com' }, { name: 'Medical Bill Reader', href: 'https://medicalbillreader.com' },
+  { name: 'Tax Break Tools', href: 'https://taxbreaktools.com' }, { name: '524 Tracker', href: 'https://524tracker.com' },
+];
+const directorySites = [
+  { name: 'Public Boat Ramps', href: 'https://publicboatramps.com' }, { name: 'Find Swim Spots', href: 'https://findswimspots.com' },
+  { name: 'Craft Distillery Finder', href: 'https://craftdistilleryfinder.com' }, { name: 'Drive-In Tonight', href: 'https://driveintonight.com' },
+  { name: 'Rockhounding Finder', href: 'https://rockhoundingfinder.com' }, { name: 'Nearby Escape Rooms', href: 'https://nearbyescaperooms.com' },
+  { name: 'All Skating Rinks', href: 'https://allskatingrinks.com' }, { name: 'Soak USA', href: 'https://soakusa.net' },
+];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${archivoBlack.variable} ${barlow.variable}`}>
       <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7171402107622932"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <meta name="msvalidate.01" content="C4C9B6256BDEDED169E4DE01CA953390" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7171402107622932" strategy="afterInteractive" />
       </head>
-      <body style={{ margin: 0, padding: 0, fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif', backgroundColor: '#ffffff', color: '#333333' }}>
-        <header style={{ backgroundColor: BRAND_DARK, color: '#ffffff', padding: '1rem 0', position: 'sticky', top: 0, zIndex: 100, boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-          <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <a href="/" style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#ffffff', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ color: BRAND_ACCENT }}>sk8</span> Parks
+      <body>
+        <header style={{ background: 'var(--asphalt)', borderBottom: '3px solid var(--yellow)', position: 'sticky', top: 0, zIndex: 1000, boxShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
+          <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.85rem 1.5rem' }}>
+            <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>🛹</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: '1.2rem', color: 'var(--yellow)', letterSpacing: '0.02em' }}>ALL SKATE PARKS</span>
             </a>
-            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-              <a href="/about" style={{ color: '#ffffff', textDecoration: 'none', fontSize: '0.95rem' }}>About</a>
-              <a href="/contact" style={{ color: '#ffffff', textDecoration: 'none', fontSize: '0.95rem' }}>Contact</a>
-              <a href="/privacy" style={{ color: '#cccccc', textDecoration: 'none', fontSize: '0.9rem' }}>Privacy</a>
-              <a href="/terms" style={{ color: '#cccccc', textDecoration: 'none', fontSize: '0.9rem' }}>Terms</a>
-            </div>
-          </nav>
+            <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+              <a href="/" style={{ color: 'var(--mid-gray)', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Home</a>
+              <a href="/browse-states" style={{ color: 'var(--mid-gray)', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Browse</a>
+              <a href="/about" style={{ color: 'var(--mid-gray)', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>About</a>
+            </nav>
+          </div>
         </header>
 
-        <main style={{ minHeight: 'calc(100vh - 300px)' }}>
-          {children}
-        </main>
+        <main style={{ minHeight: 'calc(100vh - 340px)' }}>{children}</main>
 
-        <footer style={{ backgroundColor: BRAND_DARK, color: '#ffffff', padding: '2rem 0', marginTop: '3rem' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginBottom: '2rem' }}>
+        <footer style={{ background: 'var(--asphalt)', borderTop: '3px solid var(--asphalt-lt)', marginTop: '5rem', padding: '3rem 0 2rem' }}>
+          <div className="container">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', marginBottom: '2.5rem' }}>
               <div>
-                <h3 style={{ color: BRAND_ACCENT, marginTop: 0, fontSize: '1.1rem' }}>Tools</h3>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://fibertools.app" style={{ color: '#ffffff', textDecoration: 'none' }}>Fiber Tools</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://mindchecktools.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Mind Check Tools</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://flipmycase.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Flip My Case</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://creatorrevenuecalculator.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Creator Revenue Calculator</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://contractextract.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Contract Extract</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://medicalbillreader.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Medical Bill Reader</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://taxbreaktools.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Tax Break Tools</a></li>
-                  <li><a href="https://524tracker.com" style={{ color: '#ffffff', textDecoration: 'none' }}>524 Tracker</a></li>
+                <p style={{ fontFamily: 'var(--font-display)', color: 'var(--yellow)', fontWeight: 400, fontSize: '1.1rem', marginBottom: '0.75rem', letterSpacing: '0.02em' }}>🛹 ALL SKATE PARKS</p>
+                <p style={{ color: '#666', fontSize: '0.875rem', lineHeight: 1.7 }}>The complete directory of public skateparks across the United States. Find bowls, street courses, and parks near you.</p>
+              </div>
+              <div>
+                <h4 style={{ color: 'var(--yellow)', fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '1rem', fontFamily: 'var(--font-body)', fontWeight: 700 }}>Directory Sites</h4>
+                <ul style={{ listStyle: 'none' }}>
+                  {directorySites.map((s) => <li key={s.href} style={{ marginBottom: '0.4rem' }}><a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: '#666', fontSize: '0.875rem', textDecoration: 'none' }}>{s.name}</a></li>)}
                 </ul>
               </div>
               <div>
-                <h3 style={{ color: BRAND_ACCENT, marginTop: 0, fontSize: '1.1rem' }}>Directory Sites</h3>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://publicboatramps.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Public Boat Ramps</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://findswimspots.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Find Swim Spots</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://craftdistilleryfinder.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Craft Distillery Finder</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://driveintonight.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Drive-In Tonight</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://rockhoundingfinder.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Rockhounding Finder</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://nearbyescaperooms.com" style={{ color: '#ffffff', textDecoration: 'none' }}>Nearby Escape Rooms</a></li>
-                  <li style={{ marginBottom: '0.5rem' }}><a href="https://allskatingrinks.com" style={{ color: '#ffffff', textDecoration: 'none' }}>All Skating Rinks</a></li>
-                  <li><a href="https://soakusa.net" style={{ color: '#ffffff', textDecoration: 'none' }}>Soak USA</a></li>
+                <h4 style={{ color: 'var(--yellow)', fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '1rem', fontFamily: 'var(--font-body)', fontWeight: 700 }}>Tools</h4>
+                <ul style={{ listStyle: 'none' }}>
+                  {toolSites.map((s) => <li key={s.href} style={{ marginBottom: '0.4rem' }}><a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: '#666', fontSize: '0.875rem', textDecoration: 'none' }}>{s.name}</a></li>)}
                 </ul>
               </div>
             </div>
-            <div style={{ borderTop: '1px solid #444444', paddingTop: '1.5rem', textAlign: 'center', fontSize: '0.9rem', color: '#cccccc' }}>
-              <p style={{ margin: '0.5rem 0' }}>All Skate Parks - Your Guide to Skateboarding Parks Across America</p>
-              <p style={{ margin: '0.5rem 0' }}>© 2025 All Skate Parks. All rights reserved.</p>
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+              <p style={{ color: '#444', fontSize: '0.85rem', fontFamily: 'var(--font-body)' }}>© 2026 All Skate Parks. All rights reserved.</p>
+              <div style={{ display: 'flex', gap: '1.5rem' }}>
+                {[['Privacy', '/privacy'], ['Terms', '/terms'], ['Contact', '/contact'], ['About', '/about']].map(([l, h]) => (
+                  <a key={h} href={h} style={{ color: '#444', fontSize: '0.85rem', textDecoration: 'none', fontFamily: 'var(--font-body)' }}>{l}</a>
+                ))}
+              </div>
             </div>
           </div>
         </footer>
