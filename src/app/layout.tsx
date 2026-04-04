@@ -20,7 +20,8 @@ export const metadata: Metadata = {
     'skate spots',
     'skate park directory',
   ],
-  canonical: 'https://allskateparks.com',
+  alternates: { canonical: 'https://allskateparks.com' },
+  verification: { google: 'UMcPqSXvA9j38lmCLm0RSNAV_4EcqQI6YJQnbN0KgG0' },
   openGraph: {
     title: 'All Skate Parks - Find Skate Parks Near You',
     description: 'Discover skateboarding parks across the USA. Find public and private skate parks, bowls, street courses, and more in your area.',
