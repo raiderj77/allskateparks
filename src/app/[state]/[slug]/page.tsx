@@ -100,7 +100,7 @@ export default async function Skatepark({ params }: { params: Promise<{ state: s
       {/* Hero */}
       <div style={{ position: 'relative', height: '430px', overflow: 'hidden' }}>
         <img
-          src={`https://source.unsplash.com/1600x800/?${heroKeyword}&sig=${slug.length + 400}`}
+          src={`https://picsum.photos/seed/${slug}/1600/800`}
           alt={`${location.name} skatepark`}
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           width={1600}
@@ -210,7 +210,7 @@ export default async function Skatepark({ params }: { params: Promise<{ state: s
               {related.map((loc, i) => (
                 <Link key={loc.slug} href={`/${state}/${loc.slug}`} style={{ textDecoration: 'none' }}>
                   <article className="card">
-                    <img src={`https://source.unsplash.com/800x400/?skatepark,skateboarding&sig=${i + 100}`} alt={loc.name} className="card-img" loading="lazy" width={800} height={400} />
+                    <img src={`https://picsum.photos/seed/${loc.slug}/800/400`} alt={loc.name} className="card-img" loading="lazy" width={800} height={400} />
                     <div className="card-body">
                       <div className="card-meta"><span>📍</span><span>{loc.city ? `${loc.city}, ` : ''}{loc.state}</span></div>
                       <h3 className="card-title">{loc.name}</h3>
