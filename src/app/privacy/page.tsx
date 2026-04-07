@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       </section>
 
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', lineHeight: '1.8', color: '#333333', fontSize: '0.95rem' }}>
-        <p style={{ color: '#666666' }}>Last updated: April 4, 2025</p>
+        <p style={{ color: '#666666' }}>Last updated: April 7, 2026</p>
 
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>1. Introduction</h2>
         <p>
@@ -47,14 +47,20 @@ export default function PrivacyPage() {
           <li>To comply with legal obligations</li>
         </ul>
 
-        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>4. Google AdSense</h2>
+        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>4. Google AdSense and Advertising</h2>
         <p>
-          Our Site displays advertisements through Google AdSense. Google may collect information about your browsing behavior to deliver personalized ads. Google's use of data is governed by its own privacy policy. You can opt out of personalized advertising by visiting Google's Ad Settings.
+          Our Site displays advertisements through Google AdSense. We work with third-party advertising partners, including Google, who may use cookies to serve ads based on your prior visits to this website or other websites. Google&rsquo;s use of advertising cookies enables it and its partners to serve ads to you based on your visit to this Site and/or other sites on the internet.
+        </p>
+        <p>
+          You may opt out of personalized advertising by visiting{' '}
+          <a href="https://ads.google.com/settings" target="_blank" rel="noopener noreferrer" style={{ color: '#e94560' }}>Google&rsquo;s Ad Settings</a>.
+          You may also opt out of interest-based advertising from participating third-party advertisers by visiting{' '}
+          <a href="https://optout.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: '#e94560' }}>optout.aboutads.info</a>.
         </p>
 
-        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>5. Cookies</h2>
+        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>5. Cookies and Tracking Technologies</h2>
         <p>
-          We may use cookies and similar tracking technologies to enhance your experience on our Site. These cookies help us remember your preferences and understand your behavior on the Site. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.
+          We may use cookies and similar tracking technologies to enhance your experience on our Site. These cookies help us remember your preferences and understand your behavior on the Site. Third-party advertising partners, including Google, may also set cookies on your device to serve ads based on your prior visits to this Site or other websites across the internet. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.
         </p>
 
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>6. Security of Data</h2>
