@@ -3,6 +3,21 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import locations from '@/data/locations.json';
 
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? '';
+
+function getMapboxImage(lat: number, lng: number, width = 800, height = 500): string {
+  return `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/static/${lng},${lat},16,0/${width}x${height}?access_token=${MAPBOX_TOKEN}`;
+}
+
+function getSkateParkPreview(d: { name: string; state: string; city: string; amenities: string[]; description: string }): string {
+  const amenityCount = d.amenities.length;
+  const location = d.city ? `${d.city}, ${d.state}` : d.state;
+  if (amenityCount >= 2) {
+    return `Skate park in ${location} with ${d.amenities.slice(0, 2).join(' and ').toLowerCase()}.`;
+  }
+  return `Public skate park in ${location}. Free access for skaters.`;
+}
+
 export const revalidate = 86400;
 
 const stateList = [
@@ -51,8 +66,6 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   };
 }
 
-const IMG_KEYWORDS = ['skatepark','concrete+skatepark','skateboarding','skate+bowl','street+skating','skate+ramp','skateboard+trick','skatepark+aerial'];
-
 export default async function StatePage({ params }: { params: Promise<{ state: string }> }) {
   const { state } = await params;
   const stateName = getStateName(state);
@@ -71,7 +84,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       {/* Hero */}
       <section style={{ position: 'relative', background: 'var(--asphalt)', padding: '4rem 1.5rem 3.5rem', overflow: 'hidden' }}>
         <div aria-hidden style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '6px', background: 'var(--yellow)' }} />
-        <div aria-hidden style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', background: `url("https://picsum.photos/seed/skatepark-hero/1200/600") center/cover no-repeat`, opacity: 0.07, pointerEvents: 'none' }} />
+        <div aria-hidden style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', background: 'rgba(30,30,30,0.08)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <Link href="/" style={{ color: 'var(--yellow)', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1.5rem', fontWeight: 700, fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>← All States</Link>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,5vw,4rem)', color: 'white', marginBottom: '0.75rem' }}>
@@ -95,11 +108,11 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
               {spots.map((spot, i) => (
                 <Link key={spot.slug} href={`/${state}/${spot.slug}`} style={{ textDecoration: 'none' }}>
                   <article className="card">
-                    <img src={`https://picsum.photos/seed/${spot.slug}/800/500`} alt={spot.name} className="card-img" loading="lazy" width={800} height={500} />
+                    <img src={getMapboxImage(spot.lat, spot.lng)} alt={spot.name} className="card-img" loading="lazy" width={800} height={500} />
                     <div className="card-body">
                       <div className="card-meta"><span>📍</span><span>{spot.city ? `${spot.city}, ` : ''}{spot.state}</span></div>
                       <h2 className="card-title">{spot.name}</h2>
-                      <p style={{ fontSize: '0.875rem', color: '#667', lineHeight: 1.65, flex: 1, marginBottom: '1rem', fontFamily: 'var(--font-body)' }}>{spot.description.slice(0,100)}…</p>
+                      <p style={{ fontSize: '0.875rem', color: '#667', lineHeight: 1.65, flex: 1, marginBottom: '1rem', fontFamily: 'var(--font-body)' }}>{getSkateParkPreview(spot)}</p>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                         {spot.amenities.slice(0,3).map((a) => <span key={a} className="chip">{a}</span>)}
                       </div>

@@ -3,6 +3,21 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import locations from '@/data/locations.json';
 
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? '';
+
+function getMapboxImage(lat: number, lng: number, width = 800, height = 500): string {
+  return `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/static/${lng},${lat},16,0/${width}x${height}?access_token=${MAPBOX_TOKEN}`;
+}
+
+function getSkateParkPreview(d: { name: string; state: string; city: string; amenities: string[]; description: string }): string {
+  const amenityCount = d.amenities.length;
+  const location = d.city ? `${d.city}, ${d.state}` : d.state;
+  if (amenityCount >= 2) {
+    return `Skate park in ${location} with ${d.amenities.slice(0, 2).join(' and ').toLowerCase()}.`;
+  }
+  return `Public skate park in ${location}. Free access for skaters.`;
+}
+
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
@@ -19,8 +34,6 @@ const ALL_STATES = [
   'Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont',
   'Virginia','Washington','West Virginia','Wisconsin','Wyoming',
 ];
-
-const IMG_KEYWORDS = ['skatepark','skateboarding+park','concrete+skatepark','skate+bowl','street+skating','skateboard+ramp'];
 
 export default function Home() {
   const featured = locations.slice(0, 6);
@@ -72,12 +85,10 @@ export default function Home() {
           <p className="anim-fade-up anim-delay-2" style={{ fontSize: '1rem', color: 'var(--mid-gray)', marginBottom: '2.75rem', maxWidth: '440px', margin: '0 auto 2.75rem', fontFamily: 'var(--font-body)', lineHeight: 1.65 }}>
             {locations.length}+ public skateparks across America. Bowls, street courses, and free parks — all in one place.
           </p>
-          <form method="GET" action="/search" className="anim-fade-up anim-delay-3">
-            <div className="search-wrap">
-              <input type="text" name="q" placeholder="Search by state, city, or park name…" className="search-input" />
-              <button type="submit" className="search-btn">Find Parks</button>
-            </div>
-          </form>
+          <div className="anim-fade-up anim-delay-3" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
+            <a href="/california" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.85rem 2rem', borderRadius: '4px', fontWeight: 700, fontSize: '0.95rem', background: 'var(--yellow)', color: 'var(--asphalt)', textDecoration: 'none', transition: 'background 0.2s' }}>Find Skate Parks →</a>
+            <a href="/arizona" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.85rem 2rem', borderRadius: '4px', fontWeight: 700, fontSize: '0.95rem', background: 'transparent', color: 'white', border: '2px solid rgba(245,230,66,0.4)', textDecoration: 'none', transition: 'background 0.2s' }}>Browse by State</a>
+          </div>
         </div>
         <svg aria-hidden viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', display: 'block' }} preserveAspectRatio="none">
           <path d="M0,25 C480,50 960,0 1440,25 L1440,50 L0,50 Z" fill="var(--ivory)" />
@@ -111,11 +122,11 @@ export default function Home() {
             {featured.map((loc, i) => (
               <Link key={loc.slug} href={`/${loc.stateSlug}/${loc.slug}`} style={{ textDecoration: 'none' }}>
                 <article className="card">
-                  <img src={`https://picsum.photos/seed/${loc.slug}/800/500`} alt={loc.name} className="card-img" loading="lazy" width={800} height={500} />
+                  <img src={getMapboxImage(loc.lat, loc.lng)} alt={loc.name} className="card-img" loading="lazy" width={800} height={500} />
                   <div className="card-body">
                     <div className="card-meta"><span>📍</span><span>{loc.city ? `${loc.city}, ` : ''}{loc.state}</span></div>
                     <h3 className="card-title">{loc.name}</h3>
-                    <p style={{ fontSize: '0.875rem', color: '#667', lineHeight: 1.65, flex: 1, marginBottom: '1rem', fontFamily: 'var(--font-body)' }}>{loc.description.slice(0,110)}…</p>
+                    <p style={{ fontSize: '0.875rem', color: '#667', lineHeight: 1.65, flex: 1, marginBottom: '1rem', fontFamily: 'var(--font-body)' }}>{getSkateParkPreview(loc)}</p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
                       {loc.amenities.slice(0,3).map((a) => <span key={a} className="chip">{a}</span>)}
                     </div>
