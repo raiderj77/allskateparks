@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       </section>
 
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', lineHeight: '1.8', color: '#333333', fontSize: '0.95rem' }}>
-        <p style={{ color: '#666666' }}>Last updated: April 7, 2026</p>
+        <p style={{ color: '#666666' }}>Last updated: April 19, 2026</p>
 
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>1. Introduction</h2>
         <p>
@@ -58,27 +58,49 @@ export default function PrivacyPage() {
           <a href="https://optout.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: '#e94560' }}>optout.aboutads.info</a>.
         </p>
 
-        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>5. Cookies and Tracking Technologies</h2>
+        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>5. MODPA (Maryland Online Data Privacy Act) Compliance</h2>
+        <p>
+          All Skate Parks is committed to complying with the Maryland Online Data Privacy Act (MODPA), effective April 1, 2026. Under MODPA, consumers residing in Maryland have the following rights:
+        </p>
+        <ul style={{ paddingLeft: '1.5rem' }}>
+          <li><strong>Right to Access:</strong> You have the right to request access to the personal data we collect about you.</li>
+          <li><strong>Right to Correct:</strong> You have the right to request correction of inaccurate personal data.</li>
+          <li><strong>Right to Delete:</strong> You have the right to request deletion of your personal data.</li>
+          <li><strong>Right to Opt-Out of Sale and Targeted Advertising:</strong> You have the right to opt out of the sale of your personal data and targeted advertising.</li>
+          <li><strong>Right to Data Portability:</strong> You have the right to obtain a copy of your personal data in a portable format.</li>
+        </ul>
+        <p>
+          <strong>Global Privacy Control (GPC):</strong> All Skate Parks honors Global Privacy Control (GPC) signals transmitted by your browser or device. When a valid GPC signal is detected, we automatically treat it as a universal opt-out from the sale of your personal data and targeted advertising.
+        </p>
+        <p>
+          <strong>Data Sale Policy:</strong> All Skate Parks does not sell your personal data to third parties.
+        </p>
+        <p>
+          <strong>Response Timeline:</strong> We will respond to consumer rights requests within 45 days of receipt. To exercise any of these rights, please contact us at{' '}
+          <a href="mailto:privacy@allskateparks.com" style={{ color: '#e94560', textDecoration: 'none' }}>privacy@allskateparks.com</a>.
+        </p>
+
+        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>6. Cookies and Tracking Technologies</h2>
         <p>
           We may use cookies and similar tracking technologies to enhance your experience on our Site. These cookies help us remember your preferences and understand your behavior on the Site. Third-party advertising partners, including Google, may also set cookies on your device to serve ads based on your prior visits to this Site or other websites across the internet. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.
         </p>
 
-        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>6. Security of Data</h2>
+        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>7. Security of Data</h2>
         <p>
           The security of your data is important to us but remember that no method of transmission over the internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
         </p>
 
-        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>7. Links to Other Sites</h2>
+        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>8. Links to Other Sites</h2>
         <p>
           Our Site may contain links to other websites that are not operated by us. This Privacy Policy applies only to our Site. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services. We encourage you to review the privacy policies of any third-party site before providing your information.
         </p>
 
-        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>8. Changes to This Privacy Policy</h2>
+        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>9. Changes to This Privacy Policy</h2>
         <p>
           We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top of this page.
         </p>
 
-        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>9. Contact Us</h2>
+        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>10. Contact Us</h2>
         <p>
           If you have any questions about this Privacy Policy, please contact us at{' '}
           <a href="mailto:contact@allskateparks.com" style={{ color: '#e94560', textDecoration: 'none' }}>contact@allskateparks.com</a>.
