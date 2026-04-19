@@ -13,7 +13,11 @@ export const metadata: Metadata = {
   keywords: 'skatepark, skate park near me, public skatepark, skateboarding, bowl, street skating',
   metadataBase: new URL('https://allskateparks.com'),
   alternates: { canonical: 'https://allskateparks.com' },
-  robots: 'index, follow, max-snippet:-1',
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: { index: false, follow: true },
+  },
   verification: { google: 'UMcPqSXvA9j38lmCLm0RSNAV_4EcqQI6YJQnbN0KgG0' },
 };
 
