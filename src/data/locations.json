@@ -1,229 +1,5 @@
 [
   {
-    "name": "Arab Skateboarding Park",
-    "slug": "arab-skateboarding-park",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 34.317713,
-    "lng": -86.482134,
-    "description": "Arab Skateboarding Park is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Dreamland Skate Center",
-    "slug": "dreamland-skate-center",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 30.509405,
-    "lng": -87.208082,
-    "description": "Dreamland Skate Center is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "East Carrollton Skate Park",
-    "slug": "east-carrollton-skate-park",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 33.599315,
-    "lng": -85.044823,
-    "description": "East Carrollton Skate Park is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Eglin Federal Credit Union Skatepark",
-    "slug": "eglin-federal-credit-union-skatepark",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 30.734562,
-    "lng": -86.559404,
-    "description": "Eglin Federal Credit Union Skatepark is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Get-A-Way Skatepark",
-    "slug": "get-a-way-skatepark",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 34.690812,
-    "lng": -86.584563,
-    "description": "Get-A-Way Skatepark is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Half pipe",
-    "slug": "half-pipe",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 30.706374,
-    "lng": -88.160304,
-    "description": "Half pipe is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Hot Wheels Skating Rink",
-    "slug": "hot-wheels-skating-rink",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "Daphne",
-    "lat": 30.618189,
-    "lng": -87.907517,
-    "description": "Hot Wheels Skating Rink is a skate park in Daphne, Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Jonathan Hatcher Skateboard Park",
-    "slug": "jonathan-hatcher-skateboard-park",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 32.452506,
-    "lng": -84.990001,
-    "description": "Jonathan Hatcher Skateboard Park is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Lydia Gold Skateboard Park",
-    "slug": "lydia-gold-skateboard-park",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 34.737295,
-    "lng": -86.588629,
-    "description": "Lydia Gold Skateboard Park is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Memorial Stadium Skate Park",
-    "slug": "memorial-stadium-skate-park",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 32.404497,
-    "lng": -87.043156,
-    "description": "Memorial Stadium Skate Park is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Panama City Skate Park",
-    "slug": "panama-city-skate-park",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 30.158255,
-    "lng": -85.662329,
-    "description": "Panama City Skate Park is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Red Bay Skate Park",
-    "slug": "red-bay-skate-park",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 34.448288,
-    "lng": -88.141515,
-    "description": "Red Bay Skate Park is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Selma Skate Rink",
-    "slug": "selma-skate-rink",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 32.445986,
-    "lng": -87.017119,
-    "description": "Selma Skate Rink is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Skate Park",
-    "slug": "skate-park-445836680",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 34.838598,
-    "lng": -87.675959,
-    "description": "Skate Park is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "World Conspiracy",
-    "slug": "world-conspiracy",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 34.74027,
-    "lng": -86.592172,
-    "description": "World Conspiracy is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "skate diy",
-    "slug": "skate-diy",
-    "state": "Alabama",
-    "stateSlug": "alabama",
-    "city": "",
-    "lat": 34.639683,
-    "lng": -86.568957,
-    "description": "skate diy is a skate park in Alabama.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
     "name": "Baranof Skate Park",
     "slug": "baranof-skate-park",
     "state": "Alaska",
@@ -6024,14 +5800,14 @@
     ]
   },
   {
-    "name": "The Cuckoo\u2019s Nest",
+    "name": "The Cuckoo’s Nest",
     "slug": "the-cuckoos-nest",
     "state": "Georgia",
     "stateSlug": "georgia",
     "city": "Columbus",
     "lat": 32.471665,
     "lng": -84.979528,
-    "description": "The Cuckoo\u2019s Nest is a skate park in Columbus, Georgia.",
+    "description": "The Cuckoo’s Nest is a skate park in Columbus, Georgia.",
     "amenities": [
       "Skate park",
       "Free access"
@@ -9439,14 +9215,14 @@
     ]
   },
   {
-    "name": "T.J. O\u2019Grady Memorial Skate Park",
+    "name": "T.J. O’Grady Memorial Skate Park",
     "slug": "t-j-ogrady-memorial-skate-park",
     "state": "Massachusetts",
     "stateSlug": "massachusetts",
     "city": "Acton",
     "lat": 42.480628,
     "lng": -71.451906,
-    "description": "T.J. O\u2019Grady Memorial Skate Park is a skate park in Acton, Massachusetts.",
+    "description": "T.J. O’Grady Memorial Skate Park is a skate park in Acton, Massachusetts.",
     "amenities": [
       "Skate park",
       "Free access"
@@ -15622,34 +15398,6 @@
     ]
   },
   {
-    "name": "Roller Vertical Exploration Skatepark",
-    "slug": "roller-vertical-exploration-skatepark",
-    "state": "PR",
-    "stateSlug": "pr",
-    "city": "Quebradillas",
-    "lat": 18.475966,
-    "lng": -66.915706,
-    "description": "Roller Vertical Exploration Skatepark is a skate park in Quebradillas, PR.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
-    "name": "Skate & Splash Park",
-    "slug": "skate-splash-park",
-    "state": "PR",
-    "stateSlug": "pr",
-    "city": "Aguadilla",
-    "lat": 18.494221,
-    "lng": -67.14788,
-    "description": "Skate & Splash Park is a skate park in Aguadilla, PR.",
-    "amenities": [
-      "Skate park",
-      "Free access"
-    ]
-  },
-  {
     "name": "Ashton Hill Skate Park",
     "slug": "ashton-hill-skate-park",
     "state": "Pennsylvania",
@@ -16050,6 +15798,34 @@
     "lat": 40.900758,
     "lng": -77.363641,
     "description": "Wrecktangle is a skate park in Pennsylvania.",
+    "amenities": [
+      "Skate park",
+      "Free access"
+    ]
+  },
+  {
+    "name": "Roller Vertical Exploration Skatepark",
+    "slug": "roller-vertical-exploration-skatepark",
+    "state": "PR",
+    "stateSlug": "pr",
+    "city": "Quebradillas",
+    "lat": 18.475966,
+    "lng": -66.915706,
+    "description": "Roller Vertical Exploration Skatepark is a skate park in Quebradillas, PR.",
+    "amenities": [
+      "Skate park",
+      "Free access"
+    ]
+  },
+  {
+    "name": "Skate & Splash Park",
+    "slug": "skate-splash-park",
+    "state": "PR",
+    "stateSlug": "pr",
+    "city": "Aguadilla",
+    "lat": 18.494221,
+    "lng": -67.14788,
+    "description": "Skate & Splash Park is a skate park in Aguadilla, PR.",
     "amenities": [
       "Skate park",
       "Free access"
