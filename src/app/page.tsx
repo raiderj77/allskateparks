@@ -43,23 +43,23 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context':'https://schema.org','@type':'WebSite',url:'https://allskateparks.com',
-        name:'All Skate Parks',dateModified:'2026-04-07',
+        name:'All Skate Parks',dateModified:new Date().toISOString().substring(0,10),
         potentialAction:{'@type':'SearchAction',target:{'@type':'EntryPoint',urlTemplate:'https://allskateparks.com/search?q={search_term_string}'},'query-input':'required name=search_term_string'},
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context':'https://schema.org','@type':'Organization',
         name:'All Skate Parks',url:'https://allskateparks.com',
         description:'Directory of public skate parks across the United States',
-        dateModified:'2026-04-07',
+        dateModified:new Date().toISOString().substring(0,10),
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context':'https://schema.org','@type':'LocalBusiness',
         name:'All Skate Parks Directory',url:'https://allskateparks.com',
         description:'Find public skate parks near you across the United States',
-        areaServed:'United States',dateModified:'2026-04-07',
+        areaServed:'United States',dateModified:new Date().toISOString().substring(0,10),
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        '@context':'https://schema.org','@type':'FAQPage',dateModified:'2026-04-07',
+        '@context':'https://schema.org','@type':'FAQPage',dateModified:new Date().toISOString().substring(0,10),
         mainEntity:[
           {'@type':'Question',name:'How do I find a public skate park near me?',acceptedAnswer:{'@type':'Answer',text:'Use the All Skate Parks directory to search by state or city. Each listing includes the park address, surface type, features like bowls, rails, and street sections, whether helmets are required, and whether the park is lighted for night skating.'}},
           {'@type':'Question',name:'Are public skate parks free to use?',acceptedAnswer:{'@type':'Answer',text:'Most public skate parks in the United States are free and open to the public during posted hours. Some parks in managed recreation areas or private facilities charge a small daily or membership fee. Check individual listings for current access and fee information.'}},
