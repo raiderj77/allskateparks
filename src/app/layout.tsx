@@ -8,7 +8,7 @@ const archivoBlack = Archivo_Black({ subsets: ['latin'], variable: '--font-displ
 const barlow = Barlow({ subsets: ['latin'], variable: '--font-body', display: 'swap', weight: ['400','500','600','700'] });
 
 export const metadata: Metadata = {
-  title: { template: '%s | All Skate Parks', default: 'All Skate Parks — Find Skateparks Across America' },
+  title: { template: '%s | All Skate Parks', default: 'All Skate Parks,   Find Skateparks Across America' },
   description: 'Find skateparks near you. The complete directory of public skate parks across all 50 states with amenities, surfaces, and directions.',
   keywords: 'skatepark, skate park near me, public skatepark, skateboarding, bowl, street skating',
   metadataBase: new URL('https://allskateparks.com'),

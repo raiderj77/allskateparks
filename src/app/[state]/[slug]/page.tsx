@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const location = locations.find((l) => l.slug === slug);
   const stateName = getStateName(state);
   return {
-    title: `${location?.name ?? 'Skatepark'} — Skatepark in ${stateName}`,
+    title: `${location?.name ?? 'Skatepark'},   Skatepark in ${stateName}`,
     description: location?.description ?? `Public skatepark in ${stateName}. Find surfaces, amenities, and GPS coordinates.`,
     alternates: { canonical: `https://allskateparks.com/${state}/${slug}` },
     openGraph: { title: `${location?.name} | All Skate Parks`, description: location?.description, url: `https://allskateparks.com/${state}/${slug}` },
@@ -187,7 +187,7 @@ export default async function Skatepark({ params }: { params: Promise<{ state: s
             </div>
           </div>
 
-          {/* Right — sticky panel */}
+          {/* Right,   sticky panel */}
           <aside>
             <div style={{ background: 'var(--white)', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-card)', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.1)', position: 'sticky', top: '90px' }}>
               <div style={{ background: 'var(--asphalt)', padding: '1.25rem 1.5rem', borderBottom: '3px solid var(--yellow)' }}>

@@ -1,4 +1,4 @@
-﻿# All Skate Parks — CLAUDE.md
+﻿# All Skate Parks,   CLAUDE.md
 
 > Source of truth for Claude Code on this project. Last updated: 2026-04-30
 
@@ -28,7 +28,7 @@
 - Mobile: follow Better Ads Standard
 - Google Consent Mode v2: configure all 6 parameters
 
-## 2. SEO — Google Search Essentials
+## 2. SEO,   Google Search Essentials
 
 - Use SSR or SSG for all public pages (critical for Googlebot and Bingbot crawlability)
 - Each location page must provide substantive unique value (address, hours, surface type, features, photos)
@@ -49,7 +49,7 @@ Target thresholds (75th percentile):
 
 ## 4. E-E-A-T Content Standards
 
-- Attribution: "Built by an experienced web developer" — NEVER use personal name
+- Attribution: "Built by an experienced web developer",   NEVER use personal name
 - Maintain About page with mission and data sources
 - Include Contact page accessible from every page
 - Cite data sources for location information (public parks databases, user submissions, etc.)
@@ -69,7 +69,7 @@ Rules:
 
 ## 6. Mobile-First Requirements
 
-- Location finders are primarily mobile use — optimize for mobile-first
+- Location finders are primarily mobile use,   optimize for mobile-first
 - Touch targets: 48px minimum (especially map interactions)
 - Body text: 16px minimum
 - Maps must be touch-friendly and responsive
@@ -78,7 +78,7 @@ Rules:
 ## 7. Bing-Specific Optimization
 
 - Include `<meta name="keywords">` tag
-- SSR/SSG is MANDATORY — Bingbot has very limited JS rendering
+- SSR/SSG is MANDATORY,   Bingbot has very limited JS rendering
 - IndexNow: trigger on deploy and on location data updates
 - Crawl-delay: 10 for Bingbot in robots.txt
 
@@ -98,8 +98,8 @@ Block: Bytespider, Meta-ExternalAgent
 
 ## 9. Privacy & Consent
 
-- `/privacy` — Privacy Policy (GDPR + CCPA sections required)
-- `/terms` — Terms of Service
+- `/privacy`,   Privacy Policy (GDPR + CCPA sections required)
+- `/terms`,   Terms of Service
 - Honor Global Privacy Control (GPC) signals
 - CCPA: "Do Not Sell or Share" link on homepage
 - Location data: do not collect user location without explicit permission
@@ -125,7 +125,7 @@ Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), intere
 
 ## 12. Sitemaps & Metadata
 
-- Generate via `app/sitemap.ts` — include all location pages with lastmod
+- Generate via `app/sitemap.ts`,   include all location pages with lastmod
 - Submit to Google Search Console AND Bing Webmaster Tools
 - Every location page: unique title, unique meta description mentioning city/state
 
@@ -164,12 +164,12 @@ Footer links to all sister sites (exclude self):
 7. Security headers configured
 8. LocalBusiness schema validates on representative location pages
 
-## Warnings — Things Claude Code Must NEVER Do
+## Warnings,   Things Claude Code Must NEVER Do
 
 1. Never expose the site owner's personal name in code, content, comments, or metadata
 2. Never modify ads.txt unless explicitly asked
 3. Never remove legal pages (privacy, terms)
-4. Never hardcode API keys — use environment variables
+4. Never hardcode API keys,   use environment variables
 5. Never push to main without testing build
 6. Never remove sister site cross-links
 7. Never remove or weaken security headers

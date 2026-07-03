@@ -21,7 +21,7 @@ function getSkateParkPreview(d: { name: string; state: string; city: string; ame
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'All Skate Parks — Find Skateparks Across America',
+  title: 'All Skate Parks,   Find Skateparks Across America',
   description: 'Discover public skateparks near you. The complete directory of skate parks across all 50 states with surfaces, amenities, and GPS coordinates.',
 };
 
@@ -63,8 +63,8 @@ export default function Home() {
         mainEntity:[
           {'@type':'Question',name:'How do I find a public skate park near me?',acceptedAnswer:{'@type':'Answer',text:'Use the All Skate Parks directory to search by state or city. Each listing includes the park address, surface type, features like bowls, rails, and street sections, whether helmets are required, and whether the park is lighted for night skating.'}},
           {'@type':'Question',name:'Are public skate parks free to use?',acceptedAnswer:{'@type':'Answer',text:'Most public skate parks in the United States are free and open to the public during posted hours. Some parks in managed recreation areas or private facilities charge a small daily or membership fee. Check individual listings for current access and fee information.'}},
-          {'@type':'Question',name:'What safety gear is required at skate parks?',acceptedAnswer:{'@type':'Answer',text:'Requirements vary by location. Many public skate parks require helmets for all skaters, and some require knee pads and wrist guards especially for younger skaters. Always check posted rules at the park and follow local ordinances — some cities enforce helmet laws with fines.'}},
-          {'@type':'Question',name:'What skill level are public skate parks designed for?',acceptedAnswer:{'@type':'Answer',text:"Most public skate parks include a mix of features for different skill levels — beginner-friendly flat sections and gentle banks alongside intermediate street sections and advanced bowls or vert ramps. Check the listing for a description of the park's features to find one that matches your skill level."}},
+          {'@type':'Question',name:'What safety gear is required at skate parks?',acceptedAnswer:{'@type':'Answer',text:'Requirements vary by location. Many public skate parks require helmets for all skaters, and some require knee pads and wrist guards especially for younger skaters. Always check posted rules at the park and follow local ordinances,   some cities enforce helmet laws with fines.'}},
+          {'@type':'Question',name:'What skill level are public skate parks designed for?',acceptedAnswer:{'@type':'Answer',text:"Most public skate parks include a mix of features for different skill levels,   beginner-friendly flat sections and gentle banks alongside intermediate street sections and advanced bowls or vert ramps. Check the listing for a description of the park's features to find one that matches your skill level."}},
           {'@type':'Question',name:'Can I skateboard, scooter, and BMX at the same skate park?',acceptedAnswer:{'@type':'Answer',text:'Many public skate parks allow skateboarding, inline skating, scooters, and BMX bikes, but some parks restrict certain activities or designate separate areas or time slots. Check the individual park listing or posted rules before visiting.'}},
         ],
       }) }} />
@@ -93,7 +93,7 @@ export default function Home() {
             FIND YOUR<br /><span style={{ color: 'var(--yellow)' }}>SKATEPARK</span>
           </h1>
           <p className="anim-fade-up anim-delay-2" style={{ fontSize: '1rem', color: 'var(--mid-gray)', marginBottom: '2.75rem', maxWidth: '440px', margin: '0 auto 2.75rem', fontFamily: 'var(--font-body)', lineHeight: 1.65 }}>
-            {locations.length}+ public skateparks across America. Bowls, street courses, and free parks — all in one place.
+            {locations.length}+ public skateparks across America. Bowls, street courses, and free parks,   all in one place.
           </p>
           <div className="anim-fade-up anim-delay-3" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
             <a href="/california" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.85rem 2rem', borderRadius: '4px', fontWeight: 700, fontSize: '0.95rem', background: 'var(--yellow)', color: 'var(--asphalt)', textDecoration: 'none', transition: 'background 0.2s' }}>Find Skate Parks →</a>
@@ -127,7 +127,7 @@ export default function Home() {
         <div className="container">
           <p className="section-label">Top Parks</p>
           <h2 className="section-title">Featured Skateparks</h2>
-          <p className="section-sub" style={{ marginBottom: '3rem' }}>Iconic public skateparks across America — from concrete bowls to world-class street plazas.</p>
+          <p className="section-sub" style={{ marginBottom: '3rem' }}>Iconic public skateparks across America,   from concrete bowls to world-class street plazas.</p>
           <div className="grid-3">
             {featured.map((loc, i) => (
               <Link key={loc.slug} href={`/${loc.stateSlug}/${loc.slug}`} style={{ textDecoration: 'none' }}>
@@ -157,7 +157,7 @@ export default function Home() {
           </div>
           <div className="grid-3">
             {[
-              { icon:'🗺️', title:'BROWSE BY STATE', desc:'Pick your state to see every public skatepark — sorted by city, with full details on surfaces and features.' },
+              { icon:'🗺️', title:'BROWSE BY STATE', desc:'Pick your state to see every public skatepark,   sorted by city, with full details on surfaces and features.' },
               { icon:'🔍', title:'CHECK THE PARK', desc:'Review the park type, surfaces, lighting, parking, and all available amenities before you go.' },
               { icon:'🛹', title:'DROP IN', desc:"Navigate to your spot and skate. It's that simple. All parks in our directory are publicly accessible." },
             ].map(({icon,title,desc}) => (
@@ -178,7 +178,7 @@ export default function Home() {
           <p style={{ lineHeight: 1.85, marginBottom: '1.25rem', fontFamily: 'var(--font-body)' }}>From the legendary concrete bowls of California to the vibrant urban skateplazas of New York and Chicago, the United States has one of the most diverse and expansive networks of public skateparks in the world. Cities large and small have invested in quality skate infrastructure, recognizing the cultural and athletic significance of skateboarding.</p>
           <p style={{ lineHeight: 1.85, marginBottom: '1.25rem', fontFamily: 'var(--font-body)' }}>Public skateparks range from small community parks with a few ramps and a quarter pipe, to massive world-class facilities spanning acres with competition-grade bowls, street courses, and flow areas. Many modern parks are designed by professional skaters and architects working together to create the ultimate skating experience.</p>
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--asphalt)', marginTop: '2rem', marginBottom: '0.75rem' }}>Know Before You Go</h3>
-          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)' }}>Most public skateparks require helmets for minors and strongly recommend them for all skaters. Hours vary — many parks have lighting for night skating while others close at dusk. Always check local rules, as some parks prohibit bikes or scooters in certain areas.</p>
+          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)' }}>Most public skateparks require helmets for minors and strongly recommend them for all skaters. Hours vary,   many parks have lighting for night skating while others close at dusk. Always check local rules, as some parks prohibit bikes or scooters in certain areas.</p>
         </div>
       </section>
 
@@ -193,7 +193,7 @@ export default function Home() {
             { q:'Are public skateparks free?', a:'Most public skateparks in the United States are completely free and open to the public. They are maintained by local parks and recreation departments. A small number may charge a nominal fee during certain hours.' },
             { q:'Do I need a helmet at a public skatepark?', a:'Rules vary by location and age. Most parks require helmets for minors under 18. Many parks also require knee and elbow pads for younger children. Always check posted rules at the park.' },
             { q:'Can I bring my bike or scooter to a skatepark?', a:'This depends entirely on the individual park. Many skateparks are skateboards and inline skates only, while others allow BMX bikes and scooters during certain hours. Look for posted rules or check with your local parks department.' },
-            { q:'What surfaces are common in skateparks?', a:'Concrete (poured in place or precast) is the gold standard — it\'s smooth, durable, and fast. Some parks use asphalt, skatelite (a hardboard surface), or steel for specific features. New parks are almost exclusively concrete.' },
+            { q:'What surfaces are common in skateparks?', a:'Concrete (poured in place or precast) is the gold standard,   it\'s smooth, durable, and fast. Some parks use asphalt, skatelite (a hardboard surface), or steel for specific features. New parks are almost exclusively concrete.' },
             { q:'How do I find the skatepark nearest to me?', a:'Use our directory to search by state and city. Each listing includes GPS coordinates for precise navigation directly to the park entrance.' },
           ].map(({q,a}) => (
             <details key={q} className="faq-item">
@@ -224,29 +224,29 @@ export default function Home() {
         <div className="container" style={{ maxWidth: '860px' }}>
 
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.9rem', color: 'var(--asphalt)', marginBottom: '0.75rem' }}>How to find the right skate park for your skill level</h2>
-          <p style={{ background: 'var(--ivory)', borderLeft: '4px solid var(--yellow)', padding: '0.9rem 1.2rem', fontWeight: 600, fontFamily: 'var(--font-body)', marginBottom: '1rem', lineHeight: 1.7 }}>Search by city and look at the park features listed — beginner parks emphasize smooth flat ground and gentle transitions, while advanced parks feature deep bowls, large rails, and vert ramps.</p>
+          <p style={{ background: 'var(--ivory)', borderLeft: '4px solid var(--yellow)', padding: '0.9rem 1.2rem', fontWeight: 600, fontFamily: 'var(--font-body)', marginBottom: '1rem', lineHeight: 1.7 }}>Search by city and look at the park features listed,   beginner parks emphasize smooth flat ground and gentle transitions, while advanced parks feature deep bowls, large rails, and vert ramps.</p>
           <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '0.85rem' }}>Each skate park listing describes the available terrain so you can match the park to where you are in your progression. A beginner doing their first kickturns needs different terrain than a skater working on tricks in a deep concrete bowl. Look for listings that mention "beginner-friendly" flat sections, mellow banks, or small quarter pipes if you are just starting out.</p>
           <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '2.5rem' }}>There are over 3,500 public skate parks across the United States, according to the Skatepark Project, spanning everything from tiny community installations to multi-acre regional facilities. That range means skaters at every level can find appropriate terrain within a reasonable distance in most parts of the country.</p>
 
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.9rem', color: 'var(--asphalt)', marginBottom: '0.75rem' }}>What should I bring to a public skate park?</h2>
-          <p style={{ background: 'var(--ivory)', borderLeft: '4px solid var(--yellow)', padding: '0.9rem 1.2rem', fontWeight: 600, fontFamily: 'var(--font-body)', marginBottom: '1rem', lineHeight: 1.7 }}>Always bring a helmet — many parks require it by law. Bring water, sunscreen for outdoor parks, and appropriate protective gear including knee pads and wrist guards especially if you are learning.</p>
-          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '0.85rem' }}>Beginner skaters benefit most from a full protective kit: helmet, knee pads, elbow pads, and wrist guards. As you develop your skills and confidence, many skaters scale back to just a helmet — but wrist guards remain one of the highest-impact pieces of protective gear since wrists absorb the force of most falls. Over 6 million Americans skateboard regularly, according to the Sports and Fitness Industry Association, meaning skate park facilities and posted safety rules vary widely by city and county.</p>
-          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '2.5rem' }}>Check individual park listings to see whether the facility has water fountains, restrooms, or shade structures nearby — especially important for outdoor parks during summer months.</p>
+          <p style={{ background: 'var(--ivory)', borderLeft: '4px solid var(--yellow)', padding: '0.9rem 1.2rem', fontWeight: 600, fontFamily: 'var(--font-body)', marginBottom: '1rem', lineHeight: 1.7 }}>Always bring a helmet,   many parks require it by law. Bring water, sunscreen for outdoor parks, and appropriate protective gear including knee pads and wrist guards especially if you are learning.</p>
+          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '0.85rem' }}>Beginner skaters benefit most from a full protective kit: helmet, knee pads, elbow pads, and wrist guards. As you develop your skills and confidence, many skaters scale back to just a helmet,   but wrist guards remain one of the highest-impact pieces of protective gear since wrists absorb the force of most falls. Over 6 million Americans skateboard regularly, according to the Sports and Fitness Industry Association, meaning skate park facilities and posted safety rules vary widely by city and county.</p>
+          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '2.5rem' }}>Check individual park listings to see whether the facility has water fountains, restrooms, or shade structures nearby,   especially important for outdoor parks during summer months.</p>
 
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.9rem', color: 'var(--asphalt)', marginBottom: '0.75rem' }}>What are the different types of skate park features?</h2>
           <p style={{ background: 'var(--ivory)', borderLeft: '4px solid var(--yellow)', padding: '0.9rem 1.2rem', fontWeight: 600, fontFamily: 'var(--font-body)', marginBottom: '1rem', lineHeight: 1.7 }}>Skate parks typically include street sections with stairs, rails, and ledges; transition sections with banks and quarter pipes; and bowl sections with full pools or kidney bowls for vert-style skating.</p>
-          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '0.85rem' }}>Street sections replicate urban skating environments and are popular with skaters who focus on technical tricks — ollies, grinds, flips, and slides on ledges, stairs, and handrails. Transition terrain (banks and quarter pipes) is more forgiving for learning speed and flow. Bowl sections — concrete pools and kidney bowls — support a vertical skating style where skaters carve the walls and generate speed through curved transitions rather than flat approaches.</p>
+          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '0.85rem' }}>Street sections replicate urban skating environments and are popular with skaters who focus on technical tricks,   ollies, grinds, flips, and slides on ledges, stairs, and handrails. Transition terrain (banks and quarter pipes) is more forgiving for learning speed and flow. Bowl sections,   concrete pools and kidney bowls,   support a vertical skating style where skaters carve the walls and generate speed through curved transitions rather than flat approaches.</p>
           <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '2.5rem' }}>Skateboarding was added to the Olympic Games at Tokyo 2020, driving a significant increase in public skate park construction and investment across the U.S. Many newer parks are designed with input from professional skaters to ensure the terrain supports both learning and advanced progression.</p>
 
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.9rem', color: 'var(--asphalt)', marginBottom: '0.75rem' }}>Are public skate parks open at night?</h2>
           <p style={{ background: 'var(--ivory)', borderLeft: '4px solid var(--yellow)', padding: '0.9rem 1.2rem', fontWeight: 600, fontFamily: 'var(--font-body)', marginBottom: '1rem', lineHeight: 1.7 }}>Some public skate parks have lighting for evening use, typically open until 9 or 10pm. Most unlit outdoor parks follow general park hours and close at dusk.</p>
-          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '2.5rem' }}>Urban parks managed by city recreation departments are more likely to have permanent lighting than smaller community or suburban parks. Check individual listings for notes on lighting — parks that are lighted are tagged in the directory so you can filter for evening sessions specifically.</p>
+          <p style={{ lineHeight: 1.85, fontFamily: 'var(--font-body)', marginBottom: '2.5rem' }}>Urban parks managed by city recreation departments are more likely to have permanent lighting than smaller community or suburban parks. Check individual listings for notes on lighting,   parks that are lighted are tagged in the directory so you can filter for evening sessions specifically.</p>
 
           <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', color: 'var(--asphalt)', marginBottom: '1rem' }}>Further Reading</h3>
             <ul style={{ listStyle: 'none', paddingLeft: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li><a href="https://skatepark.org" target="_blank" rel="noopener noreferrer nofollow" style={{ color: 'var(--asphalt)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>The Skatepark Project — skate park advocacy and resources</a></li>
-              <li><a href="https://usaskateboarding.com" target="_blank" rel="noopener noreferrer nofollow" style={{ color: 'var(--asphalt)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>USA Skateboarding — official national governing body</a></li>
+              <li><a href="https://skatepark.org" target="_blank" rel="noopener noreferrer nofollow" style={{ color: 'var(--asphalt)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>The Skatepark Project,   skate park advocacy and resources</a></li>
+              <li><a href="https://usaskateboarding.com" target="_blank" rel="noopener noreferrer nofollow" style={{ color: 'var(--asphalt)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>USA Skateboarding,   official national governing body</a></li>
               <li><a href="https://skateparkproject.com" target="_blank" rel="noopener noreferrer nofollow" style={{ color: 'var(--asphalt)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>Tony Hawk Foundation skate park resources</a></li>
             </ul>
           </div>
