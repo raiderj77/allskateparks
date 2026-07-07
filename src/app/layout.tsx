@@ -81,6 +81,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <p style={{ fontFamily: 'var(--font-display)', color: 'var(--yellow)', fontWeight: 400, fontSize: '1.1rem', marginBottom: '0.75rem', letterSpacing: '0.02em' }}>🛹 ALL SKATE PARKS</p>
                 <p style={{ color: '#666', fontSize: '0.875rem', lineHeight: 1.7 }}>The complete directory of public skateparks across the United States. Find bowls, street courses, and parks near you.</p>
               </div>
+              <div style={{ gridColumn: '1 / -1', marginTop: '1rem', marginBottom: '1rem' }}>
+                <p style={{ color: 'var(--yellow)', fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.16em', fontFamily: 'var(--font-body)', fontWeight: 700 }}>More from our network</p>
+              </div>
               <div>
                 <h4 style={{ color: 'var(--yellow)', fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '1rem', fontFamily: 'var(--font-body)', fontWeight: 700 }}>Directory Sites</h4>
                 <ul style={{ listStyle: 'none' }}>
