@@ -45,6 +45,16 @@ Allow: /
 User-agent: Perplexity
 Allow: /
 
+# AI crawlers (Empire Standard, GEO visibility)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 # Disallow problematic bots
 User-agent: Meta-ExternalAgent
 Disallow: /
