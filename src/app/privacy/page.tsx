@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       </section>
 
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', lineHeight: '1.8', color: '#333333', fontSize: '0.95rem' }}>
-        <p style={{ color: '#666666' }}>Last updated: April 19, 2026</p>
+        <p style={{ color: '#666666' }}>Last updated: July 13, 2026</p>
 
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>1. Introduction</h2>
         <p>
@@ -27,10 +27,10 @@ export default function PrivacyPage() {
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>2. Information Collection and Use</h2>
         <h3 style={{ fontSize: '1.1rem', color: BRAND_DARK, marginTop: '1rem' }}>Types of Data Collected</h3>
         <p>
-          <strong>Automatically Collected Data:</strong> When you visit our Site, we may automatically collect certain information about your device, including but not limited to your browser type, operating system, IP address, pages visited, and the time and date of your visits. This information helps us understand how visitors use our Site and improve our services.
+          <strong>Service and security data:</strong> Our hosting and security providers may process request information such as IP address, browser type, requested page, and timestamp to deliver the Site, prevent abuse, and diagnose failures. Retention is controlled by those providers and our service settings.
         </p>
         <p>
-          <strong>Google Analytics:</strong> We use Google Analytics to analyze how users interact with our Site. Google Analytics collects information such as your IP address, browser type, pages visited, and the time spent on pages. This data is used to improve the Site experience. For more information, see Google's privacy policy.
+          <strong>Optional analytics:</strong> Google Analytics and Microsoft Clarity are not currently enabled on the Site. We will update this policy and implement any required consent controls before enabling optional analytics.
         </p>
         <p>
           <strong>Contact Information:</strong> If you contact us via email, we may collect your email address and any information you provide in your message. This information is used solely to respond to your inquiry.
@@ -47,15 +47,12 @@ export default function PrivacyPage() {
           <li>To comply with legal obligations</li>
         </ul>
 
-        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>4. Google AdSense and Advertising</h2>
+        <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>4. Advertising Status</h2>
         <p>
-          Our Site displays advertisements through Google AdSense. We work with third-party advertising partners, including Google, who may use cookies to serve ads based on your prior visits to this website or other websites. Google&rsquo;s use of advertising cookies enables it and its partners to serve ads to you based on your visit to this Site and/or other sites on the internet.
+          Google AdSense is not currently enabled and the Site does not currently load advertising scripts or serve personalized ads. A publisher identifier may remain in public metadata or ads.txt solely for ownership verification and does not itself place advertising cookies.
         </p>
         <p>
-          You may opt out of personalized advertising by visiting{' '}
-          <a href="https://ads.google.com/settings" target="_blank" rel="noopener noreferrer" style={{ color: '#e94560' }}>Google&rsquo;s Ad Settings</a>.
-          You may also opt out of interest-based advertising from participating third-party advertisers by visiting{' '}
-          <a href="https://optout.aboutads.info" target="_blank" rel="noopener noreferrer" style={{ color: '#e94560' }}>optout.aboutads.info</a>.
+          If advertising is enabled later, we will first update this notice, satisfy applicable platform requirements, and add consent controls where required.
         </p>
 
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>5. MODPA (Maryland Online Data Privacy Act) Compliance</h2>
@@ -70,7 +67,7 @@ export default function PrivacyPage() {
           <li><strong>Right to Data Portability:</strong> You have the right to obtain a copy of your personal data in a portable format.</li>
         </ul>
         <p>
-          <strong>Global Privacy Control (GPC):</strong> All Skate Parks honors Global Privacy Control (GPC) signals transmitted by your browser or device. When a valid GPC signal is detected, we automatically treat it as a universal opt-out from the sale of your personal data and targeted advertising.
+          <strong>Global Privacy Control (GPC):</strong> The Site does not currently sell personal data or run targeted advertising. If processing subject to an opt-out is introduced later, we will honor applicable GPC signals and provide any additional required controls.
         </p>
         <p>
           <strong>Data Sale Policy:</strong> All Skate Parks does not sell your personal data to third parties.
@@ -82,7 +79,7 @@ export default function PrivacyPage() {
 
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>6. Cookies and Tracking Technologies</h2>
         <p>
-          We may use cookies and similar tracking technologies to enhance your experience on our Site. These cookies help us remember your preferences and understand your behavior on the Site. Third-party advertising partners, including Google, may also set cookies on your device to serve ads based on your prior visits to this Site or other websites across the internet. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.
+          The Site does not currently set optional analytics or advertising cookies. Essential delivery and security mechanisms may be used by our hosting providers. External sites you choose to visit have their own cookie and privacy practices.
         </p>
 
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>7. Security of Data</h2>
