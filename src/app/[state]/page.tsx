@@ -63,6 +63,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
     title: `Skateparks in ${stateName}`,
     description: `Find public skateparks in ${stateName}. Bowls, street courses, and free parks with amenities and GPS coordinates.`,
     alternates: { canonical: `https://allskateparks.com/${state}` },
+    robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
   };
 }
 
