@@ -64,6 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
     title: `${location?.name ?? 'Skatepark'},   Skatepark in ${stateName}`,
     description: location?.description ?? `Public skatepark in ${stateName}. Find surfaces, amenities, and GPS coordinates.`,
     alternates: { canonical: `https://allskateparks.com/${state}/${slug}` },
+    robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
     openGraph: { title: `${location?.name} | All Skate Parks`, description: location?.description, url: `https://allskateparks.com/${state}/${slug}` },
   };
 }

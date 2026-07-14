@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://allskateparks.com'),
   alternates: { canonical: 'https://allskateparks.com' },
   robots: {
-    index: false,
+    index: true,
     follow: true,
-    googleBot: { index: false, follow: true },
+    googleBot: { index: true, follow: true },
   },
   verification: { google: 'UMcPqSXvA9j38lmCLm0RSNAV_4EcqQI6YJQnbN0KgG0' },
 };
