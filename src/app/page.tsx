@@ -107,7 +107,7 @@ export default function Home() {
 
       {/* Stats */}
       <section style={{ background: 'var(--white)', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <div className="container stats-grid">
           {[
             { n:`${locations.length}+`, l:'Skate Parks' },
             { n:`${statesWithData}`, l:'States' },
