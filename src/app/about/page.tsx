@@ -1,60 +1,36 @@
-import type { Metadata } from 'next';
+import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'About',
-  description: 'Learn about All Skate Parks, your comprehensive guide to skateboarding parks across America.',
+export const metadata = {
+  title: 'About the All Skate Parks Rebuild',
+  description: 'How All Skate Parks handles imported records, source attribution, corrections, and publication decisions.',
 };
-
-const BRAND_DARK = '#1a1a2e';
-const BRAND_ACCENT = '#e94560';
 
 export default function AboutPage() {
   return (
-    <div style={{ backgroundColor: '#ffffff' }}>
-      <section style={{ backgroundColor: BRAND_DARK, color: '#ffffff', padding: '2rem 1rem', textAlign: 'center' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: '2.5rem', margin: 0 }}>About All Skate Parks</h1>
+    <div>
+      <section className="home-hero" style={{ padding: '4.5rem 1.5rem' }}>
+        <div className="container" style={{ maxWidth: '840px', position: 'relative', zIndex: 1 }}>
+          <p className="section-label">About the directory</p>
+          <h1 style={{ color: 'var(--white)', fontSize: 'clamp(2rem,5vw,3.6rem)', marginBottom: '1rem' }}>IMPORTED RECORDS UNDER REVIEW</h1>
+          <p className="hero-copy" style={{ margin: 0 }}>All Skate Parks is being rebuilt as a source-transparent location directory. Current entries are discovery leads, not live-verified park profiles.</p>
         </div>
       </section>
 
-      <section style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem', lineHeight: '1.8', color: '#333333' }}>
-        <h2 style={{ fontSize: '1.8rem', color: BRAND_DARK, marginTop: '2rem' }}>Our Mission</h2>
-        <p>
-          All Skate Parks exists to connect the global skateboarding community with the incredible facilities available across the United States. Whether you're a beginner learning your first ollie or a professional practicing for competition, finding the right skate park should be easy.
-        </p>
+      <section style={{ padding: '4rem 1.5rem' }}>
+        <div className="container" style={{ maxWidth: '840px' }}>
+          <h2 className="section-title">What the current data contains</h2>
+          <p style={{ lineHeight: 1.85, marginBottom: '1rem' }}>The repository contains 1,228 records with a name, state, latitude, and longitude. Only 141 contain a city field, while 1,087 do not. The data represents 47 states.</p>
+          <p style={{ lineHeight: 1.85, marginBottom: '1rem' }}>The current file contains 118 website fields, 629 surface-related tags, 174 night-lighting tags, and 27 free-admission tags. Those values have no retained extraction date or per-field source reference, so they are shown only as recorded tags and must be rechecked.</p>
+          <p style={{ lineHeight: 1.85, marginBottom: '2.5rem' }}>The repository includes a workflow intended to query OpenStreetMap, but the current file also contains fields the checked-in workflow does not generate. It does not retain OpenStreetMap object IDs. We therefore do not claim that each current field is verified OpenStreetMap data.</p>
 
-        <h2 style={{ fontSize: '1.8rem', color: BRAND_DARK, marginTop: '2rem' }}>What We Do</h2>
-        <p>
-          We maintain a comprehensive, up-to-date directory of public and private skateboarding parks throughout all 50 states. Our listings include detailed information about:
-        </p>
-        <ul style={{ paddingLeft: '1.5rem' }}>
-          <li>Park locations and addresses</li>
-          <li>Available features and amenities</li>
-          <li>Operating hours and access information</li>
-          <li>Contact details and maps</li>
-          <li>Community reviews and insights</li>
-        </ul>
+          <h2 className="section-title">Publication standard</h2>
+          <p style={{ lineHeight: 1.85, marginBottom: '1rem' }}>A future indexable park page must cite a current operator, municipal page, or other primary source; state what was reviewed and when; and distinguish imported tags from current operator-published facts.</p>
+          <p style={{ lineHeight: 1.85, marginBottom: '2.5rem' }}>State and record pages remain excluded from search indexing during this rebuild. Advertising and affiliate links will not be added to bulk imported pages.</p>
 
-        <h2 style={{ fontSize: '1.8rem', color: BRAND_DARK, marginTop: '2rem' }}>Our Commitment</h2>
-        <p>
-          We're committed to providing accurate, helpful information that makes it easy for skaters to discover new parks and plan their sessions. Our team continually updates park information to ensure accuracy and relevance.
-        </p>
-
-        <h2 style={{ fontSize: '1.8rem', color: BRAND_DARK, marginTop: '2rem' }}>Safety First</h2>
-        <p>
-          We believe that skateboarding should be fun and safe. Throughout our site, we emphasize the importance of proper protective equipment, respect for park rules, and supportive community behavior. Every skater deserves to feel welcome and safe at their local skate park.
-        </p>
-
-        <h2 style={{ fontSize: '1.8rem', color: BRAND_DARK, marginTop: '2rem' }}>The Skate Community</h2>
-        <p>
-          The skateboarding community is diverse, inclusive, and welcoming. From young kids riding their first board to seasoned professionals, from street skaters to bowl riders, skate parks bring people together. We're proud to support this vibrant community.
-        </p>
-
-        <h2 style={{ fontSize: '1.8rem', color: BRAND_DARK, marginTop: '2rem' }}>Contact & Support</h2>
-        <p>
-          Have questions or suggestions? We'd love to hear from you. Please visit our{' '}
-          <a href="/contact" style={{ color: BRAND_ACCENT, textDecoration: 'none' }}>contact page</a> to get in touch.
-        </p>
+          <h2 className="section-title">Attribution and corrections</h2>
+          <p style={{ lineHeight: 1.85, marginBottom: '1rem' }}>Open mapping attribution: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>.</p>
+          <p style={{ lineHeight: 1.85 }}>To report a closed park, incorrect coordinate, or other problem, use the <Link href="/contact">contact page</Link>. Include the record URL and a current source when possible. Submissions are reviewed before publication.</p>
+        </div>
       </section>
     </div>
   );

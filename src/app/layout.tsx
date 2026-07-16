@@ -6,9 +6,9 @@ const archivoBlack = Archivo_Black({ subsets: ['latin'], variable: '--font-displ
 const barlow = Barlow({ subsets: ['latin'], variable: '--font-body', display: 'swap', weight: ['400','500','600','700'] });
 
 export const metadata: Metadata = {
-  title: { template: '%s | All Skate Parks', default: 'All Skate Parks,   Find Skateparks Across America' },
-  description: 'Find skateparks near you. The complete directory of public skate parks across all 50 states with amenities, surfaces, and directions.',
-  keywords: 'skatepark, skate park near me, public skatepark, skateboarding, bowl, street skating',
+  title: { template: '%s | All Skate Parks', default: 'All Skate Parks - Imported Location Record Rebuild' },
+  description: 'Browse imported skate-park location records and learn what to verify before visiting.',
+  keywords: 'skate park records, skatepark directory, skate park map',
   metadataBase: new URL('https://allskateparks.com'),
   alternates: { canonical: 'https://allskateparks.com' },
   robots: {
@@ -40,28 +40,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         <header style={{ background: 'var(--asphalt)', borderBottom: '3px solid var(--yellow)', position: 'sticky', top: 0, zIndex: 1000, boxShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
-          <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.85rem 1.5rem' }}>
+          <div className="container header-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.85rem 1.5rem' }}>
             <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
               <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>🛹</span>
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: '1.2rem', color: 'var(--yellow)', letterSpacing: '0.02em' }}>ALL SKATE PARKS</span>
             </a>
-            <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+            <nav aria-label="Primary navigation" className="primary-nav" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
               <a href="/" style={{ color: 'var(--mid-gray)', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Home</a>
-              <a href="/browse-states" style={{ color: 'var(--mid-gray)', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Browse</a>
+              <a href="/#browse-regions" style={{ color: 'var(--mid-gray)', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Browse</a>
               <a href="/about" style={{ color: 'var(--mid-gray)', fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none', fontFamily: 'var(--font-body)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>About</a>
             </nav>
           </div>
         </header>
 
-        <main style={{ minHeight: 'calc(100vh - 340px)' }}>{children}</main>
+        <main id="main-content" style={{ minHeight: 'calc(100vh - 340px)' }}>{children}</main>
 
         <footer style={{ background: 'var(--asphalt)', borderTop: '3px solid var(--asphalt-lt)', marginTop: '5rem', padding: '3rem 0 2rem' }}>
           <div className="container">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', marginBottom: '2.5rem' }}>
               <div>
                 <p style={{ fontFamily: 'var(--font-display)', color: 'var(--yellow)', fontWeight: 400, fontSize: '1.1rem', marginBottom: '0.75rem', letterSpacing: '0.02em' }}>🛹 ALL SKATE PARKS</p>
-                <p style={{ color: '#666', fontSize: '0.875rem', lineHeight: 1.7 }}>The complete directory of public skateparks across the United States. Find bowls, street courses, and parks near you.</p>
+                <p style={{ color: '#888', fontSize: '0.875rem', lineHeight: 1.7 }}>Imported skate-park location records undergoing source and editorial review.</p>
               </div>
               <div style={{ gridColumn: '1 / -1', marginTop: '1rem', marginBottom: '1rem' }}>
                 <p style={{ color: 'var(--yellow)', fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.16em', fontFamily: 'var(--font-body)', fontWeight: 700 }}>More from our network</p>

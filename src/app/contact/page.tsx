@@ -30,7 +30,7 @@ export default function ContactPage() {
           </a>
         </p>
         <p style={{ color: '#666666', fontSize: '0.95rem' }}>
-          We typically respond to emails within 24-48 hours during business days.
+          For a record correction, include the page URL and a current operator, municipal, or other primary source when possible. Submissions are reviewed before publication.
         </p>
 
         <h2 style={{ fontSize: '1.5rem', color: BRAND_DARK, marginTop: '2rem' }}>What Can We Help With?</h2>

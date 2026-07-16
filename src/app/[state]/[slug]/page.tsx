@@ -10,12 +10,8 @@ function getMapboxImage(lat: number, lng: number, width = 800, height = 500): st
 }
 
 function getSkateParkPreview(d: { name: string; state: string; city: string; amenities: string[]; description: string }): string {
-  const amenityCount = d.amenities.length;
   const location = d.city ? `${d.city}, ${d.state}` : d.state;
-  if (amenityCount >= 2) {
-    return `Skate park in ${location} with ${d.amenities.slice(0, 2).join(' and ').toLowerCase()}.`;
-  }
-  return `Public skate park in ${location}. Free access for skaters.`;
+  return `Imported skate-park location record in ${location}. Verify current access and park details.`;
 }
 
 export const revalidate = 86400;
@@ -58,11 +54,11 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ state: string; slug: string }> }): Promise<Metadata> {
   const { state, slug } = await params;
-  const location = locations.find((l) => l.slug === slug);
+  const location = locations.find((l) => l.stateSlug === state && l.slug === slug);
   const stateName = getStateName(state);
   return {
     title: `${location?.name ?? 'Skatepark'},   Skatepark in ${stateName}`,
-    description: location?.description ?? `Public skatepark in ${stateName}. Find surfaces, amenities, and GPS coordinates.`,
+    description: location ? `Imported location record for ${location.name} in ${stateName}. Verify current park details with the operator.` : `Imported skate-park location record in ${stateName}.`,
     alternates: { canonical: `https://allskateparks.com/${state}/${slug}` },
     robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
     openGraph: { title: `${location?.name} | All Skate Parks`, description: location?.description, url: `https://allskateparks.com/${state}/${slug}` },
@@ -77,7 +73,7 @@ const AMENITY_ICONS: Record<string, string> = {
 
 export default async function Skatepark({ params }: { params: Promise<{ state: string; slug: string }> }) {
   const { state, slug } = await params;
-  const location = locations.find((l) => l.slug === slug);
+  const location = locations.find((l) => l.stateSlug === state && l.slug === slug);
   const stateName = getStateName(state);
 
   if (!location) {
@@ -102,14 +98,6 @@ export default async function Skatepark({ params }: { params: Promise<{ state: s
           { '@type': 'ListItem', position: 3, name: location.name, item: `https://allskateparks.com/${state}/${slug}` },
         ],
       }) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        '@context': 'https://schema.org', '@type': 'SportsActivityLocation',
-        name: location.name, description: location.description,
-        geo: { '@type': 'GeoCoordinates', latitude: location.lat, longitude: location.lng },
-        address: { '@type': 'PostalAddress', addressLocality: location.city, addressRegion: location.state, addressCountry: 'US' },
-        amenityFeature: location.amenities.map((a) => ({ '@type': 'LocationFeatureSpecification', name: a, value: true })),
-      }) }} />
-
       {/* Hero */}
       <div style={{ position: 'relative', height: '430px', overflow: 'hidden', background: 'linear-gradient(160deg, var(--asphalt) 0%, var(--asphalt-mid) 100%)' }}>
         <img
@@ -129,7 +117,7 @@ export default async function Skatepark({ params }: { params: Promise<{ state: s
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: 'white', marginBottom: '0.6rem' }}>{location.name.toUpperCase()}</h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
             <span style={{ color: 'var(--mid-gray)', fontSize: '0.9rem', fontFamily: 'var(--font-body)' }}>📍 {location.city ? `${location.city}, ` : ''}{location.state}</span>
-            <span className="chip chip-yellow">🛹 Public Skatepark</span>
+            <span className="chip chip-yellow">Imported record</span>
           </div>
         </div>
         <svg aria-hidden viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', display: 'block' }} preserveAspectRatio="none">
@@ -145,14 +133,12 @@ export default async function Skatepark({ params }: { params: Promise<{ state: s
           <div>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', color: 'var(--asphalt)', marginBottom: '1rem' }}>ABOUT THIS PARK</h2>
             <p style={{ lineHeight: 1.9, marginBottom: '2.5rem', color: 'var(--text)', fontSize: '1.025rem', fontFamily: 'var(--font-body)' }}>
-              {location.name} is a public skate park located in {location.city ? `${location.city}, ` : ''}{location.state}.{' '}
-              {location.amenities.length > 0 ? `Features include ${location.amenities.slice(0, 2).join(' and ').toLowerCase()}.` : 'Free public access for skaters of all skill levels.'}{' '}
-              GPS coordinates provided for navigation.
+              This imported record stores the name {location.name}, map coordinates, and {location.city ? `the city and state ${location.city}, ${location.state}` : `the state ${location.state}`}. Its original object ID, extraction date, and per-field provenance are not retained. Confirm the park, operator, and current visit details before relying on this record.
             </p>
 
             {location.amenities.length > 0 && (
               <>
-                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', color: 'var(--asphalt)', marginBottom: '1.25rem' }}>FEATURES</h2>
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', color: 'var(--asphalt)', marginBottom: '1.25rem' }}>RECORDED TAGS</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: '0.6rem', marginBottom: '2.5rem' }}>
                   {location.amenities.map((amenity) => (
                     <div key={amenity} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', background: 'var(--white)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', boxShadow: 'var(--shadow-card)', border: '1px solid rgba(0,0,0,0.07)', borderLeft: '3px solid var(--yellow)' }}>
@@ -183,7 +169,7 @@ export default async function Skatepark({ params }: { params: Promise<{ state: s
 
             <div style={{ background: '#f5f5f5', border: '1px solid rgba(0,0,0,0.1)', borderLeft: '3px solid var(--yellow)', borderRadius: 'var(--radius-sm)', padding: '1rem 1.25rem' }}>
               <p style={{ fontSize: '0.82rem', color: '#555', lineHeight: 1.7, fontFamily: 'var(--font-body)' }}>
-                <strong style={{ color: 'var(--asphalt)' }}>Note:</strong> Always wear appropriate safety gear. Park rules and hours vary by location. Verify current operating hours with your local parks department.
+                <strong style={{ color: 'var(--asphalt)' }}>Before visiting:</strong> confirm operating status, hours, access, fees, permitted equipment, posted rules, and current conditions with the park operator. Follow the rules and signs at the site.
               </p>
             </div>
           </div>
@@ -200,9 +186,9 @@ export default async function Skatepark({ params }: { params: Promise<{ state: s
                   ['🌐 State', location.state],
                   ['🗺️ Latitude', location.lat.toFixed(5)],
                   ['🗺️ Longitude', location.lng.toFixed(5)],
-                  ['🛹 Features', `${location.amenities.length} listed`],
-                  ['💰 Cost', 'Free / Public'],
-                  ['🏷️ Type', 'Public Skatepark'],
+                  ['🛹 Tags', `${location.amenities.length} recorded`],
+                  ['💰 Cost', 'Not verified'],
+                  ['🏷️ Record type', 'Imported location'],
                 ].map(([label, value]) => (
                   <div key={String(label)} style={{ paddingBottom: '0.85rem', marginBottom: '0.85rem', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
                     <div style={{ fontSize: '0.72rem', color: 'var(--gray)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.2rem', fontFamily: 'var(--font-body)', fontWeight: 700 }}>{label}</div>
