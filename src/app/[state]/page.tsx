@@ -10,12 +10,8 @@ function getMapboxImage(lat: number, lng: number, width = 800, height = 500): st
 }
 
 function getSkateParkPreview(d: { name: string; state: string; city: string; amenities: string[]; description: string }): string {
-  const amenityCount = d.amenities.length;
   const location = d.city ? `${d.city}, ${d.state}` : d.state;
-  if (amenityCount >= 2) {
-    return `Skate park in ${location} with ${d.amenities.slice(0, 2).join(' and ').toLowerCase()}.`;
-  }
-  return `Public skate park in ${location}. Free access for skaters.`;
+  return `Imported skate-park location record in ${location}. Verify current access and park details.`;
 }
 
 export const revalidate = 86400;
@@ -61,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const stateName = getStateName(state);
   return {
     title: `Skateparks in ${stateName}`,
-    description: `Find public skateparks in ${stateName}. Bowls, street courses, and free parks with amenities and GPS coordinates.`,
+    description: `Browse imported skate-park location records in ${stateName}. Verify current access and park details with the operator.`,
     alternates: { canonical: `https://allskateparks.com/${state}` },
     robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
   };
@@ -92,8 +88,8 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
             SKATEPARKS IN <span style={{ color: 'var(--yellow)' }}>{stateName.toUpperCase()}</span>
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <span className="chip chip-yellow">{spots.length} {spots.length===1?'Park':'Parks'} Listed</span>
-            <span style={{ color: 'var(--mid-gray)', fontSize: '0.9rem', fontFamily: 'var(--font-body)' }}>Public &amp; free access</span>
+            <span className="chip chip-yellow">{spots.length} imported {spots.length===1?'record':'records'}</span>
+            <span style={{ color: 'var(--mid-gray)', fontSize: '0.9rem', fontFamily: 'var(--font-body)' }}>Not live-verified</span>
           </div>
         </div>
         <svg aria-hidden viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', display: 'block' }} preserveAspectRatio="none">
@@ -125,8 +121,8 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
           ) : (
             <div style={{ textAlign: 'center', padding: '5rem 2rem', background: 'var(--white)', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-card)' }}>
               <p style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🛹</p>
-              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--asphalt)', marginBottom: '0.75rem', fontSize: '2rem' }}>COMING SOON</h2>
-              <p style={{ color: 'var(--gray)', fontFamily: 'var(--font-body)' }}>{"We're adding parks in "}{stateName}{",   check back soon!"}</p>
+              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--asphalt)', marginBottom: '0.75rem', fontSize: '2rem' }}>NO IMPORTED RECORDS</h2>
+              <p style={{ color: 'var(--gray)', fontFamily: 'var(--font-body)' }}>The current dataset contains no records assigned to {stateName}.</p>
               <Link href="/" className="btn btn-yellow" style={{ display: 'inline-flex', marginTop: '1.5rem' }}>Browse Other States</Link>
             </div>
           )}
