@@ -81,3 +81,11 @@ test('source limits, attribution, and accessible navigation are visible', () => 
   assert.match(css, /:focus-visible/);
   assert.doesNotMatch(layout, /href="\/browse-states"/);
 });
+
+test('the Creator footer link is followed only on the homepage', () => {
+  const layout = read('src/app/layout.tsx');
+  const creatorLink = read('src/components/CreatorRevenueLink.tsx');
+
+  assert.match(layout, /s\.href === 'https:\/\/creatorrevenuecalculator\.com'/);
+  assert.match(creatorLink, /pathname === '\/' \? 'noopener noreferrer' : 'nofollow noopener noreferrer'/);
+});
