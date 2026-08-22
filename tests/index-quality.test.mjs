@@ -82,10 +82,10 @@ test('source limits, attribution, and accessible navigation are visible', () => 
   assert.doesNotMatch(layout, /href="\/browse-states"/);
 });
 
-test('the Creator footer link is followed only on the homepage', () => {
+test('the Creator footer link is removed while unrelated network links remain', () => {
   const layout = read('src/app/layout.tsx');
-  const creatorLink = read('src/components/CreatorRevenueLink.tsx');
-
-  assert.match(layout, /s\.href === 'https:\/\/creatorrevenuecalculator\.com'/);
-  assert.match(creatorLink, /pathname === '\/' \? 'noopener noreferrer' : 'nofollow noopener noreferrer'/);
+  assert.doesNotMatch(layout, /creatorrevenuecalculator|Creator Revenue Calculator/i);
+  assert.match(layout, /\{ name: 'Fiber Tools', href: 'https:\/\/fibertools\.app' \}/);
+  assert.match(layout, /\{ name: 'Flip My Case', href: 'https:\/\/flipmycase\.com' \}/);
+  assert.equal(existsSync(new URL('../src/components/CreatorRevenueLink.tsx', import.meta.url)), false);
 });
