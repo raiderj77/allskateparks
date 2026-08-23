@@ -133,7 +133,6 @@ Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), intere
 
 Footer links to all sister sites (exclude self):
 - [FiberTools](https://fibertools.app)
-- [MindCheck Tools](https://mindchecktools.com)
 - [FlipMyCase](https://flipmycase.com)
 - [Creator Revenue Calculator](https://creatorrevenuecalculator.com)
 - [ContractExtract](https://contractextract.com)
