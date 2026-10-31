@@ -30,7 +30,7 @@ export default function PrivacyPage() {
           <strong>Service and security data:</strong> Our hosting and security providers may process request information such as IP address, browser type, requested page, and timestamp to deliver the Site, prevent abuse, and diagnose failures. Retention is controlled by those providers and our service settings.
         </p>
         <p>
-          <strong>Optional analytics:</strong> Google Analytics and Microsoft Clarity are not currently enabled on the Site. We will update this policy and implement any required consent controls before enabling optional analytics.
+          <strong>Optional analytics:</strong> We use Google Analytics (GA4) only after you accept via the consent control shown on this site. Google Analytics does not load, and sets no cookies, until you accept. If you decline or have not chosen, it never loads. When it runs, it collects standard page-view and usage data (pages visited, approximate location, device and browser information) so we can see which pages are useful. Advertising features, ad personalization, and Google signals are off. You can change or withdraw your choice at any time using the Privacy choices control shown on every page; withdrawing stops further collection and clears the analytics cookies we are able to clear. Global Privacy Control and Do Not Track signals are treated as a decline. Microsoft Clarity and advertising trackers are not used.
         </p>
         <p>
           <strong>Contact Information:</strong> If you contact us via email, we may collect your email address and any information you provide in your message. This information is used solely to respond to your inquiry.
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
 
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>6. Cookies and Tracking Technologies</h2>
         <p>
-          The Site does not currently set optional analytics or advertising cookies. Essential delivery and security mechanisms may be used by our hosting providers. External sites you choose to visit have their own cookie and privacy practices.
+          If you accept analytics, Google Analytics sets cookies such as _ga to distinguish visits. Declining sets no analytics cookies. Advertising cookies are never set. Essential delivery and security mechanisms may be used by our hosting providers. External sites you choose to visit have their own cookie and privacy practices.
         </p>
 
         <h2 style={{ fontSize: '1.3rem', color: BRAND_DARK, marginTop: '2rem' }}>7. Security of Data</h2>

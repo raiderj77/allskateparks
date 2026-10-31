@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Archivo_Black, Barlow } from 'next/font/google';
 import './globals.css';
+import AnalyticsConsent from '@/components/AnalyticsConsent';
 const archivoBlack = Archivo_Black({ subsets: ['latin'], variable: '--font-display', display: 'swap', weight: '400' });
 const barlow = Barlow({ subsets: ['latin'], variable: '--font-body', display: 'swap', weight: ['400','500','600','700'] });
 export const metadata: Metadata = {
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
         </footer>
+        <AnalyticsConsent />
       </body>
     </html>
   );
